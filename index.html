@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIB Play Studios | The Future of Entertainment</title>
+    <style>
+        /* Apple-Style Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fbfbfd; /* Clean Apple-like light gray/white */
+            color: #1d1d1f;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Gradient Definition (Inspired by your logo) */
+        :root {
+            --brand-gradient: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(251, 251, 253, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        /* Logo Integration Container */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 44px;
+            width: auto;
+            border-radius: 10px; /* Slight rounding for a smoother look */
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff4e50;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            color: #86868b;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Futuristic Game Mockup Area */
+        .mockup-container {
+            margin: 60px auto;
+            width: 320px;
+            height: 650px;
+            background: #000;
+            border-radius: 45px;
+            border: 10px solid #d1d1d6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); 
+            color: #00ffcc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- About Section --- */
+        .about {
+            background-color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #f5f5f7;
+            border-bottom: 1px solid #f5f5f7;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #515154;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #fbfbfd;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #86868b;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #515154;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: #1d1d1f;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Logo and Gradient Text Integration -->
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="GIB Play Studios Icon" class="logo-img">
+            <span class="logo-text">GIB Play Studios</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>The Future of Entertainment, <br>Just a Tap Away.</h1>
+        <p>Step into our futuristic hypercasual universe, designed exclusively for iOS. Experience speed, reflexes, and a unique visual journey.</p>
+        <a href="#" class="app-store-btn">Download on the App Store</a>
+
+        <!-- Phone Mockup for the Futuristic Game -->
+        <div class="mockup-container">
+            <div class="mockup-screen">
+                <h3 style="margin-bottom:10px;">[Your Game Name]</h3>
+                <p style="font-size: 13px; color: rgba(255,255,255,0.7);">Futuristic Hypercasual Gameplay Footage Goes Here</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Who We Are</h2>
+            <p>Operating out of Istanbul and Kocaeli, our independent game studio focuses entirely on the unparalleled power of the Apple ecosystem. By dedicating our passion to native iOS development and harnessing the capabilities of Swift, we deliver the high-speed, dynamic graphics required by futuristic themes—with zero lag and absolute fluidity.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a> | 
+            <a href="mailto:hello@gibplay.com">hello@gibplay.com</a>
+        </div>
+        <p>&copy; 2026 GIB Play Studios. All rights reserved. Istanbul / Kocaeli</p>
+    </footer>
+
+</body>
+</html>
