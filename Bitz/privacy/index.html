@@ -47,7 +47,7 @@
   </div>
 </header>
 <main id="main">
-<!-- Imported from Bitz docs/site/privacy.html (sha256 53446716c4cd946d) by tools/import_bitz_docs.py. Edit the
+<!-- Imported from Bitz docs/site/privacy.html (sha256 9c34b618f383c98c) by tools/import_bitz_docs.py. Edit the
      wording in the Bitz repository and re-import; only the layout lives here. -->
 <section class="doc-hero" aria-labelledby="privacy-heading">
   <div class="wrap">
@@ -70,7 +70,8 @@
       <li><a href="#nearby">Nearby Friends</a></li>
       <li><a href="#purchases">Purchases (Apple)</a></li>
       <li><a href="#apple">Information Apple shares</a></li>
-      <li><a href="#web">Email and these web pages</a></li>
+      <li><a href="#web">Support email and web pages</a></li>
+      <li><a href="#basis">Purposes, legal bases and retention</a></li>
       <li><a href="#rights">Your choices and rights</a></li>
       <li><a href="#children">Children</a></li>
       <li><a href="#changes">Changes</a></li>
@@ -79,18 +80,21 @@
   </nav>
 
   <article class="prose" aria-labelledby="privacy-heading">
-<p class="meta">Effective October 18, 2026 (Bitz 1.0, build 6 and later). Applies to the Bitz app and its widgets for iPhone and iPad, and to
-the Bitz web pages.</p>
+<p class="meta">Effective October 18, 2026 (Bitz 1.0, build 6 and later). Applies to the Bitz app and its widgets for iPhone and iPad, to
+the gibplay.com web pages, and to email sent to info@gibplay.com.</p>
 
-<div class="callout" id="short"><p><strong>In short:</strong> Bitz has no account, no ads, no analytics, no tracking and no
-server. The developer receives no data from the app. Your game is saved on your device. With Nearby Friends
+<div class="callout" id="short"><p><strong>In short:</strong> the Bitz app has no account, no ads, no analytics, no tracking and no
+server. The app itself sends the developer nothing; we receive only emails you choose to send us, such as a
+Report. Your game is saved on your device. With Nearby Friends
 on, nearby players see only your cat's look; your cat's name and your display name go only to a player you
 invite or whose invitation you accept, and to the cats in a visit you join. Apple handles purchases. If you
-email us, we receive what you send.</p></div>
+email us, your message reaches our Gmail mailbox through Cloudflare, and our replies are sent through Brevo; see
+<a href="#web">Support email and these web pages</a>.</p></div>
 
 <h2 id="who">Who we are</h2>
 <p>Bitz is developed and published on the App Store by Berkay Yilmaz, an individual developer, under the
-studio name Gibplay Game Studio. Contact: <a href="mailto:info@gibplay.com">info@gibplay.com</a>.</p>
+studio name GibPlay Studios. He decides how the personal data
+described here is handled (the data controller). Contact: <a href="mailto:info@gibplay.com">info@gibplay.com</a>.</p>
 
 <h2 id="device">On your device only</h2>
 <ul>
@@ -146,32 +150,87 @@ every developer, not who you are.</p>
 developer crash reports and usage statistics about Bitz. Apple decides what these contain; Bitz adds
 nothing to them.</p>
 
-<h2 id="web">Email and these web pages</h2>
+<h2 id="web">Support email and these web pages</h2>
+<h3 id="email">Support email</h3>
 <ul>
-<li><strong>Email:</strong> if you write to info@gibplay.com (including a <em>Report</em> email), we receive
-your email address, your message and anything you attach, and use them only to answer you and to look into
-reports. Mail to this address is forwarded by Cloudflare
-Email Routing to the developer's mailbox. We keep messages only as long as needed to handle your request
-and any follow-up, and we delete them when you ask.</li>
-<li><strong>Web pages:</strong> the Bitz pages are hosted on GitHub Pages; pages on gibplay.com are also
-delivered through Cloudflare. Like any website host, these providers receive your IP address and browser
-details when you open a page, and GitHub logs visitor IP addresses for security. The Bitz pages use no
-cookies, analytics, ads or third-party fonts or scripts.</li>
+<li><strong>What we receive:</strong> if you write to info@gibplay.com (including a <em>Report</em> email from
+Bitz), we receive your email address, the name your mail app sends with it, your message and anything you attach.
+A <em>Report</em> email also contains the other player's cat name and display name, as shown in the email
+before you send it.</li>
+<li><strong>What we use it for:</strong> only to answer you and to look into reports. We don't send newsletters
+or marketing email, and we don't add you to a mailing list.</li>
+<li><strong>How it travels:</strong> Cloudflare Email Routing receives mail for gibplay.com and forwards it to
+our Gmail mailbox, a Google account, where it is stored. Cloudflare states that it does not store message
+content; it records routing details (such as sender, recipient and subject), which we can see in its dashboard
+for a limited time (Cloudflare documents 31 days for its routing analytics). We write replies in Gmail, and they
+are sent through Brevo's email delivery service, so Brevo processes the reply, your email address and delivery
+records. Brevo keeps those delivery records for one month and is set not to store copies of our replies. Links in our
+replies currently pass through Brevo's redirect service (r.info.gibplay.com) before reaching their destination,
+so Brevo receives the IP address and time of a click, and Brevo may also record whether a reply was opened.
+Brevo states that opens and clicks from people who haven't agreed to tracking are not linked to a contact
+profile; we don't ask anyone to agree, and we don't use this for marketing.</li>
+<li><strong>How long:</strong> we delete support conversations 12 months after the last message and Report
+emails 6 months after the report is resolved. If a specific message is still needed for an open issue, a dispute
+or a legal claim, we keep only that message, and only until the matter is closed. You can ask us to delete your
+messages sooner. We answer requests about your data, including deletion requests, within 30 days; if we have to
+keep something for one of these reasons, we tell you what and why.</li>
 </ul>
-<p>These providers, and Apple, may process information outside your country, including in the United States.</p>
+<h3 id="hosting">These web pages</h3>
+<p>gibplay.com only presents GibPlay Studios and its games: it has no accounts, sign-ups, forms, newsletters,
+analytics, advertising or tracking. It is hosted on GitHub Pages and delivered through Cloudflare. To deliver and
+protect the pages, these providers receive your IP address, browser details and the page you request; GitHub
+logs visitor IP addresses for security. Cloudflare may also ask your browser to report pages that fail to load.
+The providers' dashboards may show us summary traffic statistics and security events, which can include IP
+addresses; we don't use them to identify visitors. The pages set no cookies and load no third-party fonts or
+scripts.</p>
+<h3 id="recipients">Providers and countries</h3>
+<p>The providers above are Cloudflare (email routing and website delivery), Google (Gmail), Brevo (sending our
+replies) and GitHub (website hosting), plus Apple for purchases and anything Apple shares with developers. We
+pass personal data to them only for these purposes, which means it is transferred abroad: they may process it
+outside your country, including in the United States. Brevo states that it hosts
+customer data in France and Belgium and that some of its own service providers are in the United States.</p>
+
+<h2 id="basis">Purposes, legal bases and retention</h2>
+<p>The Turkish Personal Data Protection Law (KVKK, No. 6698) asks us to say why we process personal data, on which
+legal basis, how we collect it and how long we keep it. The Bitz app itself sends us nothing, so this covers support
+email and these web pages. We collect the data electronically: through the email you send us and, for the web
+pages, automatically through our hosting providers.</p>
+<ul>
+<li><strong>Answering questions about Bitz and your purchases</strong> (your email address, name, message and
+attachments): necessary for the performance of the licence agreement for Bitz between you and us (KVKK art.
+5(2)(c)). Kept 12 months after the last message.</li>
+<li><strong>Answering other messages and reviewing Report emails</strong> (as above, and for reports the reported
+player's cat name and display name): our legitimate interest in answering people who write to us and keeping
+Nearby Friends safe, without overriding your rights (KVKK art. 5(2)(f)). Support conversations are kept 12 months
+after the last message, Report emails 6 months after the report is resolved.</li>
+<li><strong>Delivering and protecting these web pages</strong> (IP address, browser details, the page requested,
+reports of failed page loads): our legitimate interest in running a working and secure website (KVKK art.
+5(2)(f)). Kept by GitHub and Cloudflare under their own retention periods.</li>
+<li><strong>Legal claims and obligations:</strong> where needed to establish, exercise or defend a legal claim
+(KVKK art. 5(2)(e)) or to comply with a legal obligation (KVKK art. 5(2)(ç)), we keep the relevant messages until
+the matter is closed.</li>
+</ul>
 
 <h2 id="rights">Your choices and rights</h2>
 <p>You can turn Health access off in Settings › Privacy &amp; Security › Health › Bitz or in Bitz (Settings ›
 Steps &amp; Health), turn Nearby Friends off, and delete everything Bitz saved on your device by deleting the
 app (with its widgets). Deleting the app does not delete backup files you exported, your device backups, or
-the copies of your public card that other players' devices keep. The only personal data the developer holds
-is email you send us: you can ask to see, correct or delete it, and you may also complain to your data
-protection authority (in Türkiye, the Personal Data Protection Authority, KVKK).</p>
+the copies of your public card that other players' devices keep. Outside the app, the personal data we handle as the developer is
+support email: the messages and replies themselves, and the related delivery records at Cloudflare and Brevo.</p>
+<p>You can ask us, at info@gibplay.com, whether we process your personal data and for what purpose, who we have
+passed it to (including abroad), to correct or delete it, and to tell those recipients about the correction or
+deletion; you can also object to a result that is to your
+detriment and arises only from automated analysis, and claim compensation for damage caused by unlawful
+processing (Turkish Personal Data Protection Law No. 6698, Article 11). To make a request, write to info@gibplay.com, preferably from the email address you used with us,
+so we can find your messages; Turkish law requires us to answer within 30 days. Where the EU General Data
+Protection Regulation applies to you, you also have the rights it gives you, such as access, rectification, erasure,
+restriction, objection and data portability. You may complain to your data protection authority (in Türkiye,
+the Personal Data Protection Authority, KVKK).</p>
 
 <h2 id="children">Children</h2>
 <p>Bitz is a general-audience game. The developer does not receive personal information from anyone through
-the app. Nearby Friends is off by default; if a child uses it, the names they type are shown to nearby
-players, so a nickname is best. If you believe a child has emailed us personal information, contact us and
+the app. Nearby Friends is off by default; if a child uses it, the names they type are shown to players
+they invite or whose invitation they accept, so a nickname is best. If you believe a child has emailed us personal information, contact us and
 we will delete it.</p>
 
 <h2 id="changes">Changes</h2>
@@ -180,18 +239,21 @@ we will delete it.</p>
     <section class="section-lang" id="tr" lang="tr" aria-labelledby="privacy-tr-heading">
       <h1 id="privacy-tr-heading">Gizlilik Politikası</h1>
       <nav class="lang-nav" aria-label="Sayfalar"><a href="/Bitz/tr/">Bitz</a><a href="/Bitz/support/#tr">Destek</a><a href="#main" hreflang="en" lang="en">English</a></nav>
-<p class="meta">Yürürlük tarihi: 18 Ekim 2026 (Bitz 1.0, yapı 6 ve sonrası). iPhone ve iPad için Bitz uygulamasını ve widget'larını, ayrıca
-Bitz web sayfalarını kapsar.</p>
+<p class="meta">Yürürlük tarihi: 18 Ekim 2026 (Bitz 1.0, yapı 6 ve sonrası). iPhone ve iPad için Bitz uygulamasını ve widget'larını,
+gibplay.com web sayfalarını ve info@gibplay.com adresine gönderilen e-postaları kapsar.</p>
 
-<div class="callout" id="tr-short"><p><strong>Kısaca:</strong> Bitz'te hesap, reklam, analiz, takip ya da sunucu yok.
-Geliştirici uygulamadan hiçbir veri almaz. Oyunun cihazında saklanır. Yakındaki Arkadaşlar açıkken yakındaki
+<div class="callout" id="tr-short"><p><strong>Kısaca:</strong> Bitz uygulamasında hesap, reklam, analiz, takip ya da sunucu yok.
+Uygulama geliştiriciye kendiliğinden hiçbir şey göndermez; yalnızca bize göndermeyi seçtiğin e-postaları (örneğin
+Bildir) alırız. Oyunun cihazında saklanır. Yakındaki Arkadaşlar açıkken yakındaki
 oyuncular yalnızca kedinin görünümünü görür; kedinin adı ve görünen adın yalnızca davet ettiğin ya da davetini
 kabul ettiğin oyuncuya ve katıldığın bir ziyaretteki kedilere gider. Satın alımları Apple yürütür. Bize e-posta
-gönderirsen gönderdiklerini alırız.</p></div>
+gönderirsen mesajın Cloudflare üzerinden Gmail posta kutumuza ulaşır, yanıtlarımız Brevo üzerinden gönderilir;
+bkz. <a href="#tr-web">Destek e-postası ve bu web sayfaları</a>.</p></div>
 
 <h2 id="tr-who">Biz kimiz</h2>
-<p>Bitz, bireysel geliştirici Berkay Yilmaz tarafından Gibplay Game Studio stüdyo adıyla geliştirilir ve
-App Store'da yayımlanır. İletişim: <a href="mailto:info@gibplay.com">info@gibplay.com</a>.</p>
+<p>Bitz, bireysel geliştirici Berkay Yilmaz tarafından GibPlay Studios stüdyo adıyla geliştirilir ve
+App Store'da yayımlanır. Burada anlatılan kişisel verilerin
+nasıl işleneceğine o karar verir (veri sorumlusu). İletişim: <a href="mailto:info@gibplay.com">info@gibplay.com</a>.</p>
 
 <h2 id="tr-device">Yalnızca cihazında</h2>
 <ul>
@@ -245,33 +307,91 @@ Connect'in her geliştiriciye verdiği satış raporlarını görür; kim olduğ
 Bitz hakkında çökme raporları ve kullanım istatistikleri verebilir. Bunların içeriğine Apple karar verir;
 Bitz bunlara hiçbir şey eklemez.</p>
 
-<h2 id="tr-web">E-posta ve bu web sayfaları</h2>
+<h2 id="tr-web">Destek e-postası ve bu web sayfaları</h2>
+<h3 id="tr-email">Destek e-postası</h3>
 <ul>
-<li><strong>E-posta:</strong> info@gibplay.com adresine yazarsan (<em>Bildir</em> e-postaları dahil) e-posta
-adresini, mesajını ve eklerini alırız ve yalnızca sana yanıt vermek ve bildirimleri incelemek için
-kullanırız. Bu adrese gelen postalar Cloudflare Email Routing
-ile geliştiricinin posta kutusuna iletilir. Mesajları yalnızca isteğini ve devamını yürütmek için gereken
-süre boyunca saklar, istediğinde sileriz.</li>
-<li><strong>Web sayfaları:</strong> Bitz sayfaları GitHub Pages'te barındırılır; gibplay.com'daki sayfalar
-ayrıca Cloudflare üzerinden sunulur. Her web barındırıcısı gibi bu sağlayıcılar da bir sayfayı açtığında IP
-adresini ve tarayıcı bilgilerini alır; GitHub, güvenlik için ziyaretçi IP adreslerini kaydeder. Bitz
-sayfaları çerez, analiz, reklam ya da üçüncü taraf yazı tipi veya betik kullanmaz.</li>
+<li><strong>Neleri alırız:</strong> info@gibplay.com adresine yazarsan (Bitz'teki <em>Bildir</em> e-postaları
+dahil) e-posta adresini, e-posta uygulamanın onunla birlikte gönderdiği adı, mesajını ve eklerini alırız.
+<em>Bildir</em> e-postası ayrıca, göndermeden önce e-postada gördüğün şekilde diğer oyuncunun kedisinin adını ve
+görünen adını içerir.</li>
+<li><strong>Ne için kullanırız:</strong> yalnızca sana yanıt vermek ve bildirimleri incelemek için. Bülten ya da
+pazarlama e-postası göndermeyiz ve seni bir e-posta listesine eklemeyiz.</li>
+<li><strong>Nasıl iletilir:</strong> gibplay.com'a gelen postaları Cloudflare Email Routing alır ve bir Google
+hesabı olan Gmail posta kutumuza iletir; mesajlar orada saklanır. Cloudflare, mesaj içeriğini saklamadığını
+belirtir; yönlendirme ayrıntılarını (gönderen, alıcı ve konu gibi) kaydeder ve biz bunları sınırlı bir süre
+Cloudflare panelinde görebiliriz (Cloudflare, yönlendirme analizleri için bu süreyi 31 gün olarak belirtir).
+Yanıtlarımızı Gmail'de yazarız ve Brevo'nun e-posta gönderim hizmeti üzerinden gönderilir; bu nedenle Brevo
+yanıtı, e-posta adresini ve gönderim kayıtlarını işler. Brevo bu gönderim kayıtlarını bir ay saklar ve
+yanıtlarımızın kopyalarını saklamayacak şekilde ayarlanmıştır. Yanıtlarımızdaki bağlantılar şu anda hedeflerine
+ulaşmadan önce Brevo'nun yönlendirme hizmetinden (r.info.gibplay.com) geçer; bu nedenle Brevo bir tıklamanın IP
+adresini ve zamanını alır ve bir yanıtın açılıp açılmadığını da kaydedebilir. Brevo, takibe onay vermemiş
+kişilerin açma ve tıklamalarının bir kişi profiline bağlanmadığını belirtir; kimseden bu onayı istemiyoruz ve bunu
+pazarlama için kullanmayız.</li>
+<li><strong>Ne kadar süre:</strong> destek yazışmalarını son mesajdan 12 ay sonra, Bildir e-postalarını ise
+bildirim sonuçlandıktan 6 ay sonra sileriz. Belirli bir mesaj açık bir sorun, uyuşmazlık veya hukuki talep için
+hâlâ gerekiyorsa yalnızca o mesajı ve yalnızca konu kapanana kadar saklarız. Mesajlarının daha önce silinmesini
+isteyebilirsin. Silme talepleri dahil verilerinle ilgili taleplere 30 gün içinde yanıt veririz; bu sebeplerden
+biriyle bir şeyi saklamamız gerekiyorsa neyi ve neden sakladığımızı bildiririz.</li>
 </ul>
-<p>Bu sağlayıcılar ve Apple, bilgileri Amerika Birleşik Devletleri dahil ülken dışında işleyebilir.</p>
+<h3 id="tr-hosting">Bu web sayfaları</h3>
+<p>gibplay.com yalnızca GibPlay Studios'u ve oyunlarını tanıtır: hesap, kayıt, form, bülten, analiz, reklam ya
+da takip içermez. GitHub Pages'te barındırılır ve Cloudflare üzerinden sunulur. Sayfaları sunmak ve korumak için
+bu sağlayıcılar IP adresini, tarayıcı bilgilerini ve istediğin sayfayı alır; GitHub, güvenlik için ziyaretçi IP
+adreslerini kaydeder. Cloudflare, tarayıcından yüklenemeyen sayfaları kendisine bildirmesini de isteyebilir.
+Sağlayıcıların panelleri bize özet trafik istatistiklerini ve IP adresleri içerebilen güvenlik olaylarını
+gösterebilir; bunları ziyaretçileri tanımak için kullanmayız. Sayfalar çerez kullanmaz ve üçüncü taraf yazı tipi
+ya da betik yüklemez.</p>
+<h3 id="tr-recipients">Sağlayıcılar ve ülkeler</h3>
+<p>Yukarıdaki sağlayıcılar Cloudflare (e-posta yönlendirme ve web sitesinin sunulması), Google (Gmail), Brevo
+(yanıtlarımızın gönderilmesi) ve GitHub'dır (web sitesi barındırma); satın alımlar ve geliştiricilerle
+paylaştıkları için Apple da bunlara dahildir. Kişisel verileri onlara yalnızca bu amaçlarla aktarırız; bu, verilerin
+yurt dışına aktarılması anlamına gelir: bu sağlayıcılar bilgileri Amerika Birleşik Devletleri dahil ülken dışında
+işleyebilir. Brevo, müşteri verilerini Fransa ve Belçika'da barındırdığını ve kendi hizmet
+sağlayıcılarından bazılarının Amerika Birleşik Devletleri'nde olduğunu belirtir.</p>
+
+<h2 id="tr-basis">Amaçlar, hukuki sebepler ve saklama süreleri</h2>
+<p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK), kişisel verileri neden, hangi hukuki sebebe dayanarak ve
+hangi yöntemle işlediğimizi ve ne kadar sakladığımızı açıklamamızı ister. Bitz uygulaması bize kendiliğinden hiçbir
+veri göndermez; bu nedenle bu bölüm destek e-postalarını ve bu web sayfalarını kapsar. Verileri elektronik ortamda
+toplarız: bize gönderdiğin e-posta aracılığıyla ve web sayfaları için barındırma sağlayıcılarımız aracılığıyla
+otomatik olarak.</p>
+<ul>
+<li><strong>Bitz ve satın alımların hakkındaki sorulara yanıt vermek</strong> (e-posta adresin, adın, mesajın ve
+eklerin): seninle aramızdaki Bitz lisans sözleşmesinin ifası için gerekli olması (KVKK m. 5/2-c). Son mesajdan 12
+ay sonrasına kadar saklanır.</li>
+<li><strong>Diğer mesajlara yanıt vermek ve Bildir e-postalarını incelemek</strong> (yukarıdakiler ve bildirimlerde
+bildirilen oyuncunun kedisinin adı ve görünen adı): temel hak ve özgürlüklerine zarar vermemek kaydıyla, bize
+yazanlara yanıt verme ve Yakındaki Arkadaşlar'ı güvenli tutma konusundaki meşru menfaatimiz (KVKK m. 5/2-f).
+Destek yazışmaları son mesajdan 12 ay, Bildir e-postaları bildirim sonuçlandıktan 6 ay sonrasına kadar saklanır.</li>
+<li><strong>Bu web sayfalarını sunmak ve korumak</strong> (IP adresi, tarayıcı bilgileri, istenen sayfa, yüklenemeyen
+sayfa bildirimleri): çalışan ve güvenli bir web sitesi işletme konusundaki meşru menfaatimiz (KVKK m. 5/2-f).
+GitHub ve Cloudflare tarafından kendi saklama süreleriyle saklanır.</li>
+<li><strong>Hukuki talepler ve yükümlülükler:</strong> bir hakkın tesisi, kullanılması veya korunması için (KVKK m.
+5/2-e) ya da hukuki bir yükümlülüğü yerine getirmek için (KVKK m. 5/2-ç) gerektiğinde ilgili mesajları konu
+kapanana kadar saklarız.</li>
+</ul>
 
 <h2 id="tr-rights">Seçeneklerin ve hakların</h2>
 <p>Sağlık erişimini Ayarlar › Gizlilik ve Güvenlik › Sağlık › Bitz bölümünden ya da Bitz'te (Ayarlar › Adımlar
 ve Sağlık) kapatabilir, Yakındaki Arkadaşlar'ı kapatabilir ve uygulamayı (widget'larıyla birlikte) silerek
 Bitz'in cihazına kaydettiği her şeyi silebilirsin. Uygulamayı silmek; dışa aktardığın yedek dosyalarını,
 cihaz yedeklerini ya da diğer oyuncuların cihazlarında saklanan herkese açık kart kopyalarını silmez.
-Geliştiricinin elindeki tek kişisel veri bize gönderdiğin e-postalardır: bunları görmeyi, düzeltmeyi ya da
-silmeyi isteyebilirsin; ayrıca veri koruma otoritesine (Türkiye'de Kişisel Verileri Koruma Kurumu, KVKK)
-şikâyette bulunabilirsin.</p>
+Uygulama dışında geliştirici olarak işlediğimiz kişisel veriler destek e-postalarıdır: mesajların ve yanıtların
+kendisi ile Cloudflare ve Brevo'daki ilgili gönderim kayıtları.</p>
+<p>info@gibplay.com adresinden bize yazarak kişisel verilerinin işlenip işlenmediğini ve hangi amaçla
+işlendiğini, yurt içinde veya yurt dışında kimlere aktarıldığını öğrenebilir, düzeltilmesini veya silinmesini ve
+bu işlemlerin aktarıldığı kişilere bildirilmesini isteyebilirsin; yalnızca otomatik sistemlerle analiz edilmesi sonucunda aleyhine bir sonuç çıkmasına itiraz
+edebilir ve kanuna aykırı işleme nedeniyle zarara uğrarsan zararının giderilmesini talep edebilirsin (6698 sayılı
+Kişisel Verilerin Korunması Kanunu, madde 11). Talepte bulunmak için info@gibplay.com adresine, mesajlarını
+bulabilmemiz için tercihen bizimle yazıştığın e-posta adresinden yaz; Türk hukuku gereği en geç 30 gün içinde
+yanıt veririz. AB Genel Veri Koruma Tüzüğü senin için geçerliyse, erişim,
+düzeltme, silme, kısıtlama, itiraz ve veri taşınabilirliği gibi o Tüzüğün tanıdığı haklara da sahipsin. Veri
+koruma otoritesine (Türkiye'de Kişisel Verileri Koruma Kurumu, KVKK) şikâyette bulunabilirsin.</p>
 
 <h2 id="tr-children">Çocuklar</h2>
 <p>Bitz genel kitleye yönelik bir oyundur. Geliştirici, uygulama aracılığıyla hiç kimseden kişisel bilgi
-almaz. Yakındaki Arkadaşlar varsayılan olarak kapalıdır; bir çocuk kullanırsa yazdığı adlar yakındaki
-oyunculara gösterilir, bu yüzden bir takma ad en iyisidir. Bir çocuğun bize kişisel bilgi içeren bir
+almaz. Yakındaki Arkadaşlar varsayılan olarak kapalıdır; bir çocuk kullanırsa yazdığı adlar davet ettiği ya
+da davetini kabul ettiği oyunculara gösterilir, bu yüzden bir takma ad en iyisidir. Bir çocuğun bize kişisel bilgi içeren bir
 e-posta gönderdiğini düşünüyorsan bize yaz, sileriz.</p>
 
 <h2 id="tr-changes">Değişiklikler</h2>

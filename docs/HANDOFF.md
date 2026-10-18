@@ -44,15 +44,16 @@ From the website session, updated 2026-10-18 after the second deployment. Answer
 
 - Imported **verbatim** from the Bitz repo's `docs/site/support.html` and `docs/site/privacy.html` by
   `tools/import_bitz_docs.py` (word-for-word comparison: identical). SHA-256 of the published sources is in
-  `config/bitz-docs-source.json`; they still match the Bitz repo, where that text is now committed in `8a8057e`
-  ("Nearby privacy redesign …", the build 6 wording). If the text changes again: re-run the importer and
-  `tools/build.py`, then deploy.
+  `config/bitz-docs-source.json`. On 2026-10-18 the corrected privacy and support text (support email, website,
+  retention, legal bases, rights) was written into the Bitz repo's `docs/site/` files (not yet committed there)
+  and re-imported; the importer reproduces these pages exactly from those files. If the text changes again:
+  edit it in Bitz `docs/site/`, re-run the importer and `tools/build.py`, then deploy.
 - Layout-only changes: relative links became `/Bitz/`, `/Bitz/support/`, `/Bitz/privacy/` (`#tr` kept);
   headings got anchors; a table of contents was added.
 - **One addition on support** (both languages): "Charging Room and StandBy" / "Şarj Odası ve StandBy", built
   from the app's own strings (`chargingRoomStandByNote`, `guideInApp`, `guideClosed`,
   `chargingRoomAwakeFooter`, `chargingRoomLayoutFooter`, `guideUnlockNote` and their Turkish catalog values). It
-  refers to "Settings › Charging Room". Please check it and copy it into `docs/site/support.html` if you agree.
+  refers to "Settings › Charging Room". It is now part of Bitz `docs/site/support.html`.
 - The homepage redesign did not touch support or privacy content.
 - Email: Cloudflare Email Address Obfuscation is on for the domain; every page body is wrapped in
   `<!--email_off-->`, and live pages serve plain `mailto:info@gibplay.com` links (verified).
@@ -110,24 +111,23 @@ cache disabled, with screenshots of what is actually rendered):
 
 ## Unresolved (owner)
 
-1. **Delete the `upload-2607292/` folder from the repository.** The web upload added a duplicate copy of the site
-   there, and it is publicly reachable (for example `https://gibplay.com/upload-2607292/Bitz/`). On github.com:
-   open the folder, "…" menu, **Delete directory**, commit. `_config.yml` now also excludes `upload-*` so a
-   future accidental upload folder isn't published.
-2. **Cloudflare Web Analytics is on** for gibplay.com: Cloudflare adds `static.cloudflareinsights.com/beacon.min.js`
-   to the pages. The site's Content-Security-Policy blocks it (no data is sent), but it shows as a console
-   error and contradicts the "no analytics" promise. Turn it off in the Cloudflare dashboard (Analytics & Logs ›
-   Web Analytics).
-3. `http://` is not redirected to `https://`. Turn on Cloudflare "Always Use HTTPS" (or GitHub "Enforce HTTPS").
-4. Push access: grant `berkay-yilmaz` Write access to the repository (or push from the GibPlayStudios account) so
+1. **Delete the `upload-2607292/` folder from the repository** (github.com: open the folder, "…" menu,
+   **Delete directory**, commit). It is no longer published (`_config.yml` excludes `upload-*`), but the copy is
+   still public in the repository.
+2. `http://` is not redirected to `https://` (checked 2026-10-18). Turn on Cloudflare "Always Use HTTPS" (or
+   GitHub "Enforce HTTPS").
+3. Push access: grant `berkay-yilmaz` Write access to the repository (or push from the GibPlayStudios account) so
    future deployments are exact commits instead of web uploads.
 
-## Inconsistencies for the owner
+Resolved since the first handoff: Cloudflare Web Analytics is off (no script injected, checked 2026-10-18); the
+legal texts use the studio name **GibPlay Studios**; support and privacy now describe the support-email route
+(Cloudflare Email Routing, Gmail, Brevo), retention, legal bases and KVKK rights. The Bitz repository's
+`docs/site` sources carry the same text (local changes there must be committed with the app).
 
-- **Studio name:** the website uses "GibPlay Studios"; the app, privacy policy and App Store copyright use
-  "Gibplay Game Studio"; the old site used "GIB Play Studios". Support/privacy text keeps "Gibplay Game Studio"
-  as written. Pick one and tell both sessions.
-- **Email:** the old site used `hello@gibplay.com`; the app and App Store Connect use `info@gibplay.com`. The site
-  uses only `info@gibplay.com`. No test email was sent.
+## Notes for the owner
+
+- **Studio name:** "GibPlay Studios" is used everywhere on the website; the App Store copyright still says
+  "Gibplay Game Studio" and should be aligned by the app session.
+- **Email:** the website uses only `info@gibplay.com`.
 
 The old pages at `https://berkay-yilmaz.github.io/bitz-app/` were not touched.
