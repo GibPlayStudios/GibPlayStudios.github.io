@@ -1,69 +1,79 @@
-<section class="studio-hero" aria-labelledby="studio-heading">
-  <div class="wrap studio-hero-grid">
-    <img class="studio-mark" src="/assets/img/gibplay-logo-512.png" width="512" height="512" alt="GibPlay Studios logo: a play button around a rounded G shaped like a game controller.">
-    <div>
-      <h1 id="studio-heading">GibPlay Studios</h1>
-      <p class="lede">An independent studio making cozy, carefully crafted games for iPhone and iPad. Our first game is Bitz, a tiny pixel cat who moves into your phone.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="/Bitz/">Meet Bitz</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
+<section class="hero" aria-labelledby="studio-heading">
+  <div class="wrap">
+    <img class="hero-mark reveal" src="/assets/img/gibplay-logo-160.png" width="64" height="64" alt="">
+    <h1 id="studio-heading" class="reveal reveal-2"><span class="kicker">GibPlay Studios</span>Thoughtful games, distinctive worlds.</h1>
+    <p class="lede reveal reveal-3">We're an independent studio making games for iPhone and iPad. Our first game is Bitz, a tiny pixel cat who moves into your phone.</p>
+    <div class="actions reveal reveal-4">
+      <a class="btn btn-primary" href="#games">See our games</a>
+      <a class="btn" href="#contact">Get in touch</a>
     </div>
+    <hr class="hero-rule">
   </div>
 </section>
-<hr class="rainbow-rule">
 
-<section class="flagship section-alt" aria-labelledby="flagship-heading">
+<section class="section" id="games" aria-labelledby="games-heading">
   <div class="wrap">
-    <div class="flagship-card">
-      <a class="framed" href="/Bitz/" aria-label="Bitz: open the product page">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112"
-             alt="Bitz, an orange pixel cat in a beanie and scarf, sits on the rug of a cozy living room on an autumn day.">
-      </a>
+    <div class="section-head">
       <div>
-        <p class="eyebrow">Our first game</p>
-        <h2 id="flagship-heading">Bitz</h2>
-        <p class="lede">A cozy pixel cat for your iPhone, iPad and Home Screen. Care for them, play little games, decorate five rooms and watch them grow up through the seasons.</p>
-        {{release}}
+        <p class="label">Games</p>
+        <h2 id="games-heading">Our first game</h2>
+      </div>
+      <p>Every game we make gets its own world and its own look. This is where you'll find them.</p>
+    </div>
+
+    <article class="game-card" aria-labelledby="bitz-card-title">
+      <a class="game-art" href="/Bitz/" tabindex="-1" aria-hidden="true">
+        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+      </a>
+      <div class="game-body">
+        <span class="game-tag">Our first game</span>
+        <div class="game-title">
+          <img class="pixel" src="/assets/bitz/art/icon-192.png" width="56" height="56" alt="">
+          <h3 id="bitz-card-title">Bitz</h3>
+        </div>
+        <p>A cozy pixel cat for iPhone, iPad and your Home Screen. Care for Bitz, play little games, decorate five rooms and watch your cat grow up through the seasons. No ads, no accounts, no tracking.</p>
+        {{release_compact}}
         <div class="actions">
-          <a class="btn btn-primary" href="/Bitz/">Explore Bitz</a>
-          <a class="btn" href="/Bitz/#demo">Pet Bitz in the demo</a>
+          <a class="btn btn-primary" href="/Bitz/">Explore Bitz <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn" href="/Bitz/#demo">Try the interactive preview</a>
         </div>
       </div>
+    </article>
+
+    <div class="more">
+      <h3>More to come</h3>
+      <p>Bitz is our first game, and we hope it's the first of many. We'll share new games here when they're ready to show.</p>
     </div>
-    <ul class="strip" aria-label="More from Bitz">
-      <li><img class="pixel" src="/assets/bitz/art/scene-winter-day.png" width="160" height="112" loading="lazy" alt="The main room in winter, with a wood stove and snow outside."></li>
-      <li><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" loading="lazy" alt="The bedroom in the Lantern Night theme."></li>
-      <li><img class="pixel" src="/assets/bitz/art/room-garden.png" width="160" height="112" loading="lazy" alt="Bitz sniffing the grass in the garden."></li>
-      <li><img class="pixel" src="/assets/bitz/art/scene-autumn-night.png" width="160" height="112" loading="lazy" alt="Bitz asleep on the cushion on an autumn night."></li>
-    </ul>
   </div>
 </section>
 
 <section class="section" id="about" aria-labelledby="about-heading">
   <div class="wrap about-grid">
     <div>
-      <p class="eyebrow">About the studio</p>
-      <h2 id="about-heading">Small games, made with care.</h2>
-      <p class="lede">We like games you can return to for a minute or an evening, and that respect your time and your privacy.</p>
+      <p class="label">About</p>
+      <h2 id="about-heading">A small studio that takes its time.</h2>
+      <p class="intro">GibPlay Studios makes games for Apple devices, built with care and meant to be returned to, whether for a minute or a whole evening.</p>
     </div>
-    <div>
-      <p>Everything you see in Bitz, from the cat and the furniture to the seasons outside the window, is original pixel art drawn in code by the game itself, so the app, its widgets and its App Store artwork all share one hand-made look.</p>
-      <p>Bitz has no ads, no accounts and no tracking. Your cat lives on your device.</p>
-    </div>
+    <ul class="principles">
+      <li><strong>Made by hand</strong><span>Everything you see in Bitz, from the cat to the seasons outside the window, is original pixel art drawn in code by the game itself.</span></li>
+      <li><strong>Respect for players</strong><span>Bitz has no ads, no accounts and no tracking. Your cat lives on your device.</span></li>
+      <li><strong>Built for iPhone and iPad</strong><span>Native games that feel at home on Apple devices, from the Home Screen to the bedside.</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="section section-alt" id="contact" aria-labelledby="contact-heading">
-  <div class="wrap about-grid">
-    <div>
-      <p class="eyebrow">Contact</p>
-      <h2 id="contact-heading">Say hello.</h2>
-      <p class="lede">Write to us about anything. Please don't send passwords or payment details.</p>
+<section class="section" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="label">Contact</p>
+        <h2 id="contact-heading">Get in touch</h2>
+      </div>
+      <p>Please don't send passwords or payment details by email.</p>
     </div>
-    <ul class="contact-list">
-      <li><strong>Help with Bitz</strong>Answers about purchases, restoring packs, widgets and more: <a href="/Bitz/support/">Bitz Support</a></li>
-      <li><strong>Everything else</strong>Email {{email}}</li>
-    </ul>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:info@gibplay.com"><strong>Email the studio</strong><span>Questions, feedback or anything else.</span><br><span class="value">info@gibplay.com</span></a>
+      <a class="contact-card" href="/Bitz/support/"><strong>Help with Bitz</strong><span>Purchases, restoring packs, widgets and more.</span><br><span class="value">Bitz Support →</span></a>
+    </div>
   </div>
 </section>

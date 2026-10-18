@@ -1,0 +1,189 @@
+/* GibPlay Studios homepage (/ and /tr/).
+   A neutral studio identity: off-white or charcoal, one muted teal accent that
+   sits well next to the logo's warm gradient, and system typography. Each game
+   keeps its own look inside its showcase (Bitz: cream, plum and pixel art). */
+
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --text: #16181d;
+  --muted: #5b616c;
+  --line: #e2e0db;
+  --accent: #2b6970;
+  --accent-strong: #1f5258;
+  --accent-soft: #e4efee;
+  --focus: #1d5fd1;
+  --logo-1: #ee7aa0;
+  --logo-2: #f6a57a;
+  --logo-3: #fbd46a;
+  --footer-bg: #16181d;
+  --footer-text: #c9ccd2;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius: 14px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121417;
+    --surface: #1a1d21;
+    --text: #eceef1;
+    --muted: #a3a9b3;
+    --line: #2b2f35;
+    --accent: #7db7bd;
+    --accent-strong: #a3d0d4;
+    --accent-soft: #1d2b2d;
+    --focus: #ffcf5a;
+    --footer-bg: #0c0d0f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+.pixel { image-rendering: pixelated; }
+a { color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 0.07em; }
+a:hover { color: var(--accent-strong); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { margin: 0 0 0.5em; line-height: 1.1; letter-spacing: -0.022em; font-weight: 650; }
+p { margin: 0 0 1em; }
+.wrap { width: min(1160px, 100%); margin: 0 auto; padding-inline: 32px; }
+@media (max-width: 640px) { .wrap { padding-inline: 20px; } }
+@media (max-width: 380px) { .wrap { padding-inline: 16px; } body { font-size: 16px; } }
+
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-weight: 600; }
+.skip:focus { top: 12px; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+@supports not (background: color-mix(in srgb, red 50%, blue)) { .site-header { background: var(--bg); } }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; }
+.brand img { width: 34px; height: 34px; }
+.brand-name { font-weight: 650; font-size: 1.05rem; letter-spacing: -0.01em; }
+.brand-name span { font-weight: 450; color: var(--muted); }
+.site-nav { display: flex; align-items: center; gap: 4px; }
+.site-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 2px; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; color: var(--muted); font-weight: 500; font-size: 0.95rem; text-decoration: none; border-radius: 8px; }
+.site-nav a:hover { color: var(--text); background: var(--accent-soft); }
+.lang-switch { margin-left: 8px; border: 1px solid var(--line); color: var(--text) !important; }
+@media (max-width: 600px) {
+  .brand-name span { display: none; }
+  .site-nav a { padding: 0 8px; font-size: 0.9rem; }
+}
+@media (max-width: 400px) { .site-header .brand-name { display: none; } .lang-switch { margin-left: 2px; } }
+@media (max-width: 360px) { .site-nav a { padding: 0 6px; font-size: 0.85rem; } .header-row { gap: 8px; } }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 20px;
+  border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  font: 600 0.98rem/1 var(--font); text-decoration: none; transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.btn:hover { border-color: var(--muted); color: var(--text); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
+@media (prefers-color-scheme: dark) { .btn-primary, .btn-primary:hover { color: #0c1415; } }
+.btn .arrow { transition: transform 0.15s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Hero */
+.hero { padding: clamp(72px, 12vw, 152px) 0 clamp(56px, 8vw, 104px); }
+.hero-mark { width: 64px; height: 64px; margin-bottom: 36px; }
+.hero h1 { font-size: clamp(2.6rem, 6.6vw, 5.2rem); max-width: 14ch; font-weight: 700; letter-spacing: -0.035em; }
+.hero h1 .kicker { display: block; margin-bottom: 22px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; color: var(--accent); }
+.hero .lede { font-size: clamp(1.15rem, 1.9vw, 1.4rem); color: var(--muted); max-width: 40ch; margin-top: 24px; }
+.hero-rule { height: 3px; width: 72px; border: 0; margin: 40px 0 0; border-radius: 2px; background: linear-gradient(90deg, var(--logo-1), var(--logo-2), var(--logo-3)); }
+
+/* Sections */
+.section { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 12px; margin-bottom: 40px; }
+@media (min-width: 900px) { .section-head { grid-template-columns: 1fr 1fr; align-items: end; gap: 48px; } }
+.label { margin: 0 0 14px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+:lang(tr) .label { text-transform: none; letter-spacing: 0.02em; font-size: 0.9rem; }
+.section h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.section-head p { color: var(--muted); margin: 0; max-width: 48ch; }
+
+/* Featured game: Bitz keeps its own product colours inside the card. */
+.game-card {
+  display: grid; overflow: hidden; border-radius: 20px; background: #f9efe1; color: #3d2630;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 18px 48px -24px rgba(22, 24, 29, 0.35);
+}
+@media (min-width: 900px) { .game-card { grid-template-columns: 7fr 5fr; } }
+.game-art { position: relative; margin: 0; display: flex; align-items: center; background: #3d2630; }
+.game-art img { width: 100%; height: auto; aspect-ratio: 160 / 112; image-rendering: pixelated; transition: transform 0.6s ease; }
+@media (prefers-reduced-motion: no-preference) { .game-card:hover .game-art img { transform: scale(1.02); } }
+.game-body { padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; }
+.game-tag { display: inline-block; align-self: flex-start; margin-bottom: 18px; padding: 6px 10px; border-radius: 999px; background: #3d2630; color: #f9efe1; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; }
+.game-title { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.game-title img { width: 56px; height: 56px; border-radius: 13px; border: 2px solid #3d2630; }
+.game-title h3 { margin: 0; font-size: clamp(2rem, 3.4vw, 2.6rem); letter-spacing: -0.02em; color: #3d2630; }
+.game-body p { color: #5f4450; }
+.game-status { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; font-weight: 600; color: #3d2630; }
+.game-status .dot { width: 9px; height: 9px; border-radius: 50%; background: #c8612b; flex: none; }
+.game-status-note { font-size: 0.9rem; color: #6b4a55; margin-top: 6px; }
+.game-body .actions { margin-top: 26px; }
+.game-body .btn { border-color: rgba(61, 38, 48, 0.25); background: #fff8ee; color: #3d2630; }
+.game-body .btn:hover { border-color: #3d2630; color: #3d2630; }
+.game-body .btn-primary { background: #b4462f; border-color: #b4462f; color: #fff8ee; }
+.game-body .btn-primary:hover { background: #9c3a26; border-color: #9c3a26; color: #fff8ee; }
+.game-body a:not(.btn) { color: #9c3a26; }
+
+.more {
+  display: grid; gap: 8px; margin-top: 28px; padding: 26px 28px; border: 1px dashed var(--line); border-radius: var(--radius);
+}
+@media (min-width: 760px) { .more { grid-template-columns: auto 1fr; gap: 28px; align-items: baseline; } }
+.more h3 { margin: 0; font-size: 1.15rem; }
+.more p { margin: 0; color: var(--muted); }
+
+/* About */
+.about-grid { display: grid; gap: 40px; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: 5fr 7fr; gap: 72px; } }
+.about-grid .intro { font-size: clamp(1.15rem, 1.7vw, 1.3rem); color: var(--text); }
+.principles { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.principles li { display: grid; gap: 4px; padding: 22px 0; border-top: 1px solid var(--line); }
+.principles li:last-child { border-bottom: 1px solid var(--line); }
+@media (min-width: 640px) { .principles li { grid-template-columns: 220px 1fr; gap: 24px; } }
+.principles strong { font-weight: 600; }
+.principles span { color: var(--muted); }
+
+/* Contact */
+.contact-grid { display: grid; gap: 20px; }
+@media (min-width: 760px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+.contact-card { display: block; padding: 26px 28px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; transition: border-color 0.15s; }
+a.contact-card:hover { border-color: var(--accent); color: var(--text); }
+.contact-card strong { display: block; font-size: 1.1rem; margin-bottom: 6px; }
+.contact-card span { color: var(--muted); }
+.contact-card .value { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 600; }
+
+/* Footer (shared markup from tools/build.py) */
+.site-footer { background: var(--footer-bg); color: var(--footer-text); padding: 64px 0 32px; }
+.site-footer a { color: #f1f2f4; text-decoration-color: rgba(241, 242, 244, 0.35); }
+.site-footer a:hover { color: #fff; }
+.site-footer .brand { color: #fff; }
+.site-footer .brand-name span { color: #9ba1ab; display: inline; }
+.footer-grid { display: grid; gap: 32px; }
+@media (min-width: 820px) { .footer-grid { grid-template-columns: 2fr 1fr 1.4fr 1fr; } }
+.footer-brand p { margin: 14px 0 0; max-width: 34ch; color: #9ba1ab; }
+.footer-title { margin: 6px 0 14px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9ba1ab; }
+:lang(tr) .footer-title { text-transform: none; letter-spacing: 0.02em; font-size: 0.85rem; }
+.footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 0.95rem; }
+.footer-links a { display: inline-block; padding: 3px 0; }
+.footer-legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid #2b2f35; font-size: 0.85rem; color: #8a909a; }
+.footer-legal p { margin: 0; }
+
+/* Entrance motion: a short rise on load, only when the visitor allows motion.
+   Transform only, so text is readable at every moment of the animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal-2 { animation-duration: 0.8s; }
+  .reveal-3 { animation-duration: 0.9s; }
+  .reveal-4 { animation-duration: 1s; }
+  @keyframes rise { from { transform: translateY(12px); } to { transform: none; } }
+}

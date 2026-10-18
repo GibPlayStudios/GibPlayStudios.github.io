@@ -39,6 +39,20 @@ The importer only changes layout (links, anchors, table of contents) and adds th
 "Charging Room and StandBy" section, written from the app's own strings. `config/bitz-docs-source.json` records
 which source file versions were imported.
 
+## Two looks
+
+- The studio homepage (`/`, `/tr/`) uses `assets/css/studio.css`: off-white or charcoal, a muted teal accent and
+  system typography. Games keep their own look inside their showcase card.
+- Bitz pages (`/Bitz/…`, support, privacy, 404) use `assets/css/site.css`: Bitz cream, plum and pixel art.
+
+`tools/build.py` picks the stylesheet per page (`"theme": "studio"`).
+
+## Bitz interactive preview
+
+`assets/js/stage.js` draws the main room from three exported layers per season and time of day
+(`stage-<season>-<day|night>-bg|cat|fg.png`, frame lists in `assets/bitz/art/stage.js`). The still picture in the
+page stays visible until the preview has drawn its first scene, and returns if it can't load.
+
 ## Release button
 
 `config/release.json` holds Bitz's App Store status. See [docs/RELEASE_BUTTON.md](docs/RELEASE_BUTTON.md).

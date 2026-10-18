@@ -15,10 +15,12 @@
     </div>
 
     <figure class="stage" data-stage data-art="/assets/bitz/art/" id="demo">
+      <p class="stage-kicker">Etkileşimli önizleme</p>
       <div class="stage-frame">
         <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112"
              alt="Mavi bereli, kırmızı atkılı turuncu piksel kedi Bitz, bir sonbahar gününde sıcacık salonun halısında oturuyor; çevresinde pencere, kitaplık, kanepe ve akvaryum var.">
         <canvas width="160" height="112" role="img" hidden></canvas>
+        <span class="stage-label" data-stage-label aria-hidden="true"></span>
       </div>
       <div class="stage-controls" hidden>
         <button type="button" class="btn btn-primary pet-btn" data-pet>Bitz'i sev</button>
@@ -34,16 +36,19 @@
         </div>
       </div>
       <p class="stage-status" data-stage-status role="status" aria-live="polite"></p>
-      <figcaption class="stage-note">Uygulamanın kendi piksel çizimleriyle hazırlanmış küçük bir web sitesi demosu. Hiçbir kediye ya da kayda bağlı değil.</figcaption>
+      <figcaption class="stage-note">Bitz'i sev, gündüz ile gece arasında geç ya da mevsimi değiştir. Burada oynamak uygulamayı etkilemez.</figcaption>
       <script type="application/json" data-stage-words>{
-        "pet_day": "Bitz elinize sokuluyor ve mırlıyor.",
+        "pet_day": "Bitz gözlerini kapatıp mırlıyor.",
         "pet_night": "Uykulu bir mırıltı. Bitz uyumaya devam ediyor.",
         "now_day": "Gündüz: Bitz uyanık ve ortalarda.",
         "now_night": "Gece: Bitz minderinde kıvrılmış uyuyor.",
-        "season_now": "Salonda mevsim: {season}.",
-        "scene_day": "Bitz gündüz salonda; mevsim: {season}.",
-        "scene_night": "Bitz gece salonda minderinde uyuyor; mevsim: {season}.",
-        "season_winter": "kış", "season_spring": "ilkbahar", "season_summer": "yaz", "season_autumn": "sonbahar"
+        "season_now": "Şimdi: {season}.",
+        "scene_day": "Bitz salonda. {scene}.",
+        "scene_night": "Bitz salonda minderinde uyuyor. {scene}.",
+        "season_winter": "Kış", "season_spring": "İlkbahar", "season_summer": "Yaz", "season_autumn": "Sonbahar",
+        "phase_day": "Gündüz", "phase_night": "Gece",
+        "load_error": "Bu sahne yüklenemedi. Lütfen yeniden dene.",
+        "preview_error": "Etkileşimli önizleme yüklenemedi; onun yerine Bitz'in bir resmi gösteriliyor."
       }</script>
     </figure>
   </div>
