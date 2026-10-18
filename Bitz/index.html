@@ -27,12 +27,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/bitz/art/icon-64.png">
 <link rel="apple-touch-icon" href="/assets/bitz/art/icon-192.png">
-<link rel="stylesheet" href="/assets/css/site.css?v=4">
-<script src="/assets/bitz/art/stage.js?v=4" defer></script>
-<script src="/assets/js/stage.js?v=4" defer></script>
-<script src="/assets/js/carousel.js?v=4" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=8">
+<script src="/assets/bitz/art/stage.js?v=8" defer></script>
+<script src="/assets/js/stage.js?v=8" defer></script>
+<script src="/assets/js/carousel.js?v=8" defer></script>
 </head>
-<body class="page-bitz">
+<body class="theme-bitz page-bitz">
 <!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -69,10 +69,12 @@
     </div>
 
     <figure class="stage" data-stage data-art="/assets/bitz/art/" id="demo">
+      <p class="stage-kicker">Interactive preview</p>
       <div class="stage-frame">
         <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112"
              alt="Bitz, an orange pixel cat in a blue beanie and red scarf, sits on the rug of a cozy living room on an autumn day, with a window, bookshelf, sofa and fishbowl around them.">
         <canvas width="160" height="112" role="img" hidden></canvas>
+        <span class="stage-label" data-stage-label aria-hidden="true"></span>
       </div>
       <div class="stage-controls" hidden>
         <button type="button" class="btn btn-primary pet-btn" data-pet>Pet Bitz</button>
@@ -88,16 +90,19 @@
         </div>
       </div>
       <p class="stage-status" data-stage-status role="status" aria-live="polite"></p>
-      <figcaption class="stage-note">A small website demo drawn with the app's own pixel art. It isn't connected to any cat or save.</figcaption>
+      <figcaption class="stage-note">Pet Bitz, switch day and night, or change the season. Playing here doesn't affect the app.</figcaption>
       <script type="application/json" data-stage-words>{
-        "pet_day": "Bitz leans into your hand and purrs.",
+        "pet_day": "Bitz closes their eyes and purrs.",
         "pet_night": "A sleepy purr. Bitz keeps on sleeping.",
         "now_day": "Daytime: Bitz is up and about.",
         "now_night": "Night: Bitz is curled up asleep on the cushion.",
-        "season_now": "Season: {season}.",
-        "scene_day": "Bitz in the main room by day, in {season}.",
-        "scene_night": "Bitz asleep on the cushion in the main room at night, in {season}.",
-        "season_winter": "winter", "season_spring": "spring", "season_summer": "summer", "season_autumn": "autumn"
+        "season_now": "Now showing {season}.",
+        "scene_day": "Bitz in the main room. {scene}.",
+        "scene_night": "Bitz asleep on the cushion in the main room. {scene}.",
+        "season_winter": "Winter", "season_spring": "Spring", "season_summer": "Summer", "season_autumn": "Autumn",
+        "phase_day": "Day", "phase_night": "Night",
+        "load_error": "That scene didn't load. Please try again.",
+        "preview_error": "The interactive preview couldn't load, so here's a picture of Bitz instead."
       }</script>
     </figure>
   </div>
@@ -334,7 +339,7 @@
         <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
         <span class="brand-name">GibPlay <span>Studios</span></span>
       </a>
-      <p>An independent studio making cozy games for iPhone and iPad.</p>
+      <p>An independent game studio making games for iPhone and iPad.</p>
     </div>
     <div>
       <h2 class="footer-title">Bitz</h2>

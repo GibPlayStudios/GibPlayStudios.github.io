@@ -88,10 +88,15 @@ for season in seasons {
         var frames: [PixelCanvas] = []
         var seen: [Data: Int] = [:]
         var sequences: [(String, [Int])] = []
-        func add(_ sequence: String, _ states: [(CatRenderState, Double)]) {
+        // Just petted: the engine's "happy" moment, which the renderer draws with the
+        // celebrate pose, a cloud of hearts and purr lines (asleep, Bitz keeps sleeping).
+        let pettedRoom = homeRoom(.living, hour: hour, minute: hour == 22 ? 40 : 30, month: season.month) { state, date in
+            state.lastPettedAt = date.addingTimeInterval(-1)
+        }
+        func add(_ sequence: String, _ states: [(CatRenderState, Double)], in source: RoomSnapshot? = nil) {
             var indices: [Int] = []
             for (state, time) in states {
-                let lit = layers(room, cat: state, time: time).cat
+                let lit = layers(source ?? room, cat: state, time: time).cat
                     .cropped(x: spot.x - anchor.x, y: spot.y - anchor.y, width: cell.width, height: cell.height)
                 let data = PNGEncoder.encode(lit)
                 if let index = seen[data] { indices.append(index); continue }
@@ -111,7 +116,7 @@ for season in seasons {
                 add("turn-\(f)", [(at(facing, .turning), 7.3)])
                 let rests: [(String, RestActivity, Int)] = [
                     ("sit", .sit, 24), ("loaf", .loaf, 16), ("groom", .groom, 16),
-                    ("look", .lookAround, 16), ("pet", .rub, 12), ("blink", .slowBlink, 12),
+                    ("look", .lookAround, 16), ("blink", .slowBlink, 12),
                 ]
                 for (sequence, activity, count) in rests {
                     add("\(sequence)-\(f)", (0..<count).map {
@@ -119,6 +124,10 @@ for season in seasons {
                         return (at(facing, .resting(activity, elapsed: t)), 7.3 + t)
                     })
                 }
+                add("pet-\(f)", (0..<12).map {
+                    let t = Double($0) * 0.25
+                    return (at(facing, .resting(.celebrate, elapsed: t)), 7.3 + t)
+                }, in: pettedRoom)
             }
         } else {
             // Asleep: petting only brings a sleepy purr, so the night stage has one pose.
@@ -126,11 +135,12 @@ for season in seasons {
                 if case .resting(let activity, _) = rest.mode { return .resting(activity, elapsed: 2) }
                 return .resting(.curl, elapsed: 2)
             }()
-            add("sleep", (0..<16).map { i -> (CatRenderState, Double) in
+            let sleeping = (0..<16).map { i -> (CatRenderState, Double) in
                 var state = rest
                 if case .resting(let activity, _) = mode { state.mode = .resting(activity, elapsed: 1 + Double(i) * 0.25) }
                 return (state, 7.3 + Double(i) * 0.25)
-            })
+            }
+            add("sleep", sleeping)
         }
         var sheet = PixelCanvas(width: columns * cell.width, height: ((frames.count + columns - 1) / columns) * cell.height)
         for (i, frame) in frames.enumerated() {
@@ -140,7 +150,7 @@ for season in seasons {
         manifest += "    \"\(name)\": { spot: [\(spot.x), \(spot.y)], sequences: {"
         manifest += sequences.map { "\"\($0.0)\": [\($0.1.map(String.init).joined(separator: ","))]" }.joined(separator: ", ")
         manifest += "} },\n"
-        print(name, "spot", spot, "behavior", room.behavior, "frames", frames.count)
+        print(name, "spot", spot, "behavior", room.behavior, "petted", pettedRoom.behavior, "frames", frames.count)
     }
 }
 manifest += "  }\n};\n"

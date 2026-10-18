@@ -27,12 +27,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/bitz/art/icon-64.png">
 <link rel="apple-touch-icon" href="/assets/bitz/art/icon-192.png">
-<link rel="stylesheet" href="/assets/css/site.css?v=4">
-<script src="/assets/bitz/art/stage.js?v=4" defer></script>
-<script src="/assets/js/stage.js?v=4" defer></script>
-<script src="/assets/js/carousel.js?v=4" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=8">
+<script src="/assets/bitz/art/stage.js?v=8" defer></script>
+<script src="/assets/js/stage.js?v=8" defer></script>
+<script src="/assets/js/carousel.js?v=8" defer></script>
 </head>
-<body class="page-bitz">
+<body class="theme-bitz page-bitz">
 <!--email_off-->
 <a class="skip" href="#main">İçeriğe geç</a>
 <header class="site-header">
@@ -69,10 +69,12 @@
     </div>
 
     <figure class="stage" data-stage data-art="/assets/bitz/art/" id="demo">
+      <p class="stage-kicker">Etkileşimli önizleme</p>
       <div class="stage-frame">
         <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112"
              alt="Mavi bereli, kırmızı atkılı turuncu piksel kedi Bitz, bir sonbahar gününde sıcacık salonun halısında oturuyor; çevresinde pencere, kitaplık, kanepe ve akvaryum var.">
         <canvas width="160" height="112" role="img" hidden></canvas>
+        <span class="stage-label" data-stage-label aria-hidden="true"></span>
       </div>
       <div class="stage-controls" hidden>
         <button type="button" class="btn btn-primary pet-btn" data-pet>Bitz'i sev</button>
@@ -88,16 +90,19 @@
         </div>
       </div>
       <p class="stage-status" data-stage-status role="status" aria-live="polite"></p>
-      <figcaption class="stage-note">Uygulamanın kendi piksel çizimleriyle hazırlanmış küçük bir web sitesi demosu. Hiçbir kediye ya da kayda bağlı değil.</figcaption>
+      <figcaption class="stage-note">Bitz'i sev, gündüz ile gece arasında geç ya da mevsimi değiştir. Burada oynamak uygulamayı etkilemez.</figcaption>
       <script type="application/json" data-stage-words>{
-        "pet_day": "Bitz elinize sokuluyor ve mırlıyor.",
+        "pet_day": "Bitz gözlerini kapatıp mırlıyor.",
         "pet_night": "Uykulu bir mırıltı. Bitz uyumaya devam ediyor.",
         "now_day": "Gündüz: Bitz uyanık ve ortalarda.",
         "now_night": "Gece: Bitz minderinde kıvrılmış uyuyor.",
-        "season_now": "Salonda mevsim: {season}.",
-        "scene_day": "Bitz gündüz salonda; mevsim: {season}.",
-        "scene_night": "Bitz gece salonda minderinde uyuyor; mevsim: {season}.",
-        "season_winter": "kış", "season_spring": "ilkbahar", "season_summer": "yaz", "season_autumn": "sonbahar"
+        "season_now": "Şimdi: {season}.",
+        "scene_day": "Bitz salonda. {scene}.",
+        "scene_night": "Bitz salonda minderinde uyuyor. {scene}.",
+        "season_winter": "Kış", "season_spring": "İlkbahar", "season_summer": "Yaz", "season_autumn": "Sonbahar",
+        "phase_day": "Gündüz", "phase_night": "Gece",
+        "load_error": "Bu sahne yüklenemedi. Lütfen yeniden dene.",
+        "preview_error": "Etkileşimli önizleme yüklenemedi; onun yerine Bitz'in bir resmi gösteriliyor."
       }</script>
     </figure>
   </div>
@@ -334,7 +339,7 @@
         <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
         <span class="brand-name">GibPlay <span>Studios</span></span>
       </a>
-      <p>iPhone ve iPad için sıcacık oyunlar yapan bağımsız bir stüdyo.</p>
+      <p>iPhone ve iPad için oyunlar yapan bağımsız bir oyun stüdyosu.</p>
     </div>
     <div>
       <h2 class="footer-title">Bitz</h2>

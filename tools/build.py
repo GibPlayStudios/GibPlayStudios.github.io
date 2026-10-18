@@ -18,17 +18,17 @@ SITE = "https://gibplay.com"
 EMAIL = "info@gibplay.com"
 YEAR = "2026"
 RELEASE = json.loads((ROOT / "config/release.json").read_text())
-ASSET_VERSION = "4"
+ASSET_VERSION = "8"
 
 PAGES = [
     {"src": "home.en.html", "out": "index.html", "path": "/", "lang": "en", "section": "home",
-     "alternates": {"en": "/", "tr": "/tr/"},
-     "title": "GibPlay Studios: cozy games for iPhone and iPad",
-     "description": "GibPlay Studios is an independent game studio. Our first game is Bitz, a cozy pixel cat for iPhone and iPad."},
+     "alternates": {"en": "/", "tr": "/tr/"}, "theme": "studio",
+     "title": "GibPlay Studios: thoughtful games, distinctive worlds",
+     "description": "GibPlay Studios is an independent game studio making games for iPhone and iPad. Our first game is Bitz."},
     {"src": "home.tr.html", "out": "tr/index.html", "path": "/tr/", "lang": "tr", "section": "home",
-     "alternates": {"en": "/", "tr": "/tr/"},
-     "title": "GibPlay Studios: iPhone ve iPad için sıcacık oyunlar",
-     "description": "GibPlay Studios bağımsız bir oyun stüdyosu. İlk oyunumuz Bitz, iPhone ve iPad için sevimli bir piksel kedi."},
+     "alternates": {"en": "/", "tr": "/tr/"}, "theme": "studio",
+     "title": "GibPlay Studios: özenli oyunlar, kendine özgü dünyalar",
+     "description": "GibPlay Studios, iPhone ve iPad için oyunlar yapan bağımsız bir oyun stüdyosu. İlk oyunumuz Bitz."},
     {"src": "bitz.en.html", "out": "Bitz/index.html", "path": "/Bitz/", "lang": "en", "section": "bitz",
      "alternates": {"en": "/Bitz/", "tr": "/Bitz/tr/"}, "icon": "bitz", "scripts": ["stage", "carousel"],
      "title": "Bitz: a cozy pixel cat for iPhone and iPad",
@@ -57,7 +57,7 @@ T = {
         "nav_label": "Main", "nav_bitz": "Bitz", "nav_support": "Support", "nav_privacy": "Privacy",
         "switch_label": "Türkçe", "switch_lang": "tr", "switch_title": "Bu sayfayı Türkçe oku",
         "brand_label": "GibPlay Studios home",
-        "footer_about": "An independent studio making cozy games for iPhone and iPad.",
+        "footer_about": "An independent game studio making games for iPhone and iPad.",
         "footer_game": "Bitz", "footer_contact": "Contact", "footer_language": "Language",
         "footer_support_text": "Questions about Bitz? Start with", "footer_support_link": "Bitz Support",
         "legal": "iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries.",
@@ -68,7 +68,7 @@ T = {
         "nav_label": "Ana menü", "nav_bitz": "Bitz", "nav_support": "Destek", "nav_privacy": "Gizlilik",
         "switch_label": "English", "switch_lang": "en", "switch_title": "Read this page in English",
         "brand_label": "GibPlay Studios ana sayfa",
-        "footer_about": "iPhone ve iPad için sıcacık oyunlar yapan bağımsız bir stüdyo.",
+        "footer_about": "iPhone ve iPad için oyunlar yapan bağımsız bir oyun stüdyosu.",
         "footer_game": "Bitz", "footer_contact": "İletişim", "footer_language": "Dil",
         "footer_support_text": "Bitz hakkında bir sorun mu var? Önce şuraya bak:", "footer_support_link": "Bitz Destek",
         "legal": "iPhone ve iPad, Apple Inc.'in ABD'de ve diğer ülkelerde tescilli ticari markalarıdır.",
@@ -107,6 +107,22 @@ def release_block(lang):
             "Bitz yayımlandığında bu sayfa App Store'a bağlantı verecek.</p></div>")
 
 
+def release_compact(lang):
+    """A one-line status for game cards (the homepage)."""
+    r = RELEASE
+    devices = r["devices"] if lang == "en" else r["devicesTr"]
+    if r["status"] == "available":
+        badge = f"/assets/img/app-store-badge-{lang}.svg"
+        alt = "Download on the App Store" if lang == "en" else "App Store'dan İndirin"
+        return (f'<a class="store-badge" href="{r["appStoreUrl"]}"><img src="{badge}" alt="{alt}" width="120" height="40"></a>'
+                f'<p class="game-status-note">{devices}, {r["minimumOS"]}+</p>')
+    if lang == "en":
+        return ('<p class="game-status"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</p>'
+                f'<p class="game-status-note">For {devices}, {r["minimumOS"]} or later. Not available to download yet.</p>')
+    return ("<p class=\"game-status\"><span class=\"dot\" aria-hidden=\"true\"></span>Çok yakında App Store'da</p>"
+            f'<p class="game-status-note">{devices} için, {r["minimumOS"]} veya sonrası. Henüz indirilemiyor.</p>')
+
+
 def release_short(lang):
     if RELEASE["status"] == "available":
         return "Available on the App Store" if lang == "en" else "App Store'da"
@@ -117,6 +133,8 @@ def head(page):
     lang, t = page["lang"], T[page["lang"]]
     url = SITE + page["path"]
     bitz_icon = page.get("icon") == "bitz"
+    studio = page.get("theme") == "studio"
+    light_bg, dark_bg = ("#f6f5f2", "#121417") if studio else ("#f9efe1", "#211820")
     lines = [
         "<!doctype html>",
         f'<html lang="{lang}">',
@@ -130,8 +148,8 @@ def head(page):
         f"<title>{html.escape(page['title'])}</title>",
         f'<meta name="description" content="{html.escape(page["description"])}">',
         '<meta name="color-scheme" content="light dark">',
-        '<meta name="theme-color" content="#f9efe1" media="(prefers-color-scheme: light)">',
-        '<meta name="theme-color" content="#211820" media="(prefers-color-scheme: dark)">',
+        f'<meta name="theme-color" content="{light_bg}" media="(prefers-color-scheme: light)">',
+        f'<meta name="theme-color" content="{dark_bg}" media="(prefers-color-scheme: dark)">',
     ]
     if page.get("noindex"):
         lines.append('<meta name="robots" content="noindex">')
@@ -164,7 +182,10 @@ def head(page):
         lines += ['<link rel="icon" href="/favicon.ico" sizes="32x32 48x48">',
                   '<link rel="icon" type="image/png" sizes="160x160" href="/assets/img/gibplay-logo-160.png">',
                   '<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">']
-    lines.append(f'<link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">')
+    if page.get("theme") == "studio":
+        lines.append(f'<link rel="stylesheet" href="/assets/css/studio.css?v={ASSET_VERSION}">')
+    else:
+        lines.append(f'<link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">')
     if page["section"] == "home" and lang == "en":
         lines.append('<script type="application/ld+json">' + json.dumps({
             "@context": "https://schema.org", "@type": "Organization", "name": "GibPlay Studios",
@@ -174,7 +195,9 @@ def head(page):
         if script == "stage":
             lines.append(f'<script src="/assets/bitz/art/stage.js?v={ASSET_VERSION}" defer></script>')
         lines.append(f'<script src="/assets/js/{script}.js?v={ASSET_VERSION}" defer></script>')
-    lines += ["</head>", f'<body class="page-{page["section"]}">']
+
+    theme = page.get("theme", "bitz")
+    lines += ["</head>", f'<body class="theme-{theme} page-{page["section"]}">']
     return "\n".join(lines)
 
 
@@ -189,6 +212,12 @@ def header(page):
         current = ' aria-current="page"' if key == section else ""
         return f'<li><a href="{t[key]}"{current}>{label}</a></li>'
 
+    if page.get("theme") == "studio":
+        items = [("#games", "Games" if lang == "en" else "Oyunlar"), ("#about", "About" if lang == "en" else "Hakkında"),
+                 ("#contact", "Contact" if lang == "en" else "İletişim")]
+        nav_items = "\n        ".join(f'<li><a href="{href}">{label}</a></li>' for href, label in items)
+    else:
+        nav_items = "\n        ".join([link('bitz', t['nav_bitz']), link('support', t['nav_support']), link('privacy', t['nav_privacy'])])
     switch_html = ""
     if switch:
         switch_html = (f'<a class="lang-switch" href="{switch}" hreflang="{t["switch_lang"]}" lang="{t["switch_lang"]}" '
@@ -202,9 +231,7 @@ def header(page):
     </a>
     <nav class="site-nav" aria-label="{t['nav_label']}">
       <ul>
-        {link('bitz', t['nav_bitz'])}
-        {link('support', t['nav_support'])}
-        {link('privacy', t['nav_privacy'])}
+        {nav_items}
       </ul>
       {switch_html}
     </nav>
@@ -260,6 +287,7 @@ def fill(text, page):
     replacements = {
         "{{release}}": release_block(lang),
         "{{release_short}}": release_short(lang),
+        "{{release_compact}}": release_compact(lang),
         "{{email}}": email_link(),
         "{{devices}}": RELEASE["devices"] if lang == "en" else RELEASE["devicesTr"],
         "{{min_os}}": RELEASE["minimumOS"],
