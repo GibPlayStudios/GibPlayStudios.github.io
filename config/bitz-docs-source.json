@@ -1,0 +1,13 @@
+{
+  "bitzRepo": "../Bitz",
+  "sources": [
+    {
+      "file": "docs/site/support.html",
+      "sha256": "55cc49eec015effd96c939a75ae7791b264535b4427425c78141c24552c9ba83"
+    },
+    {
+      "file": "docs/site/privacy.html",
+      "sha256": "53446716c4cd946de4498e348cd2b51de68db98dac8e805c09f3ce72ed3855ad"
+    }
+  ]
+}

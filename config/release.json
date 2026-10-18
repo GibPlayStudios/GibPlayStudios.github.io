@@ -1,0 +1,11 @@
+{
+  "_comment": "Bitz release state for gibplay.com. Edit, then run: python3 tools/build.py. See docs/RELEASE_BUTTON.md.",
+  "status": "coming-soon",
+  "appStoreId": "6824056606",
+  "appStoreUrl": "https://apps.apple.com/app/id6824056606",
+  "devices": "iPhone and iPad",
+  "devicesTr": "iPhone ve iPad",
+  "minimumOS": "iOS 17",
+  "verifiedOn": "2026-10-18",
+  "verifiedHow": "iTunes lookup API (bundle com.berkayilmaz.bitz and id 6824056606) returned no results; apps.apple.com/app/id6824056606 returned 404."
+}

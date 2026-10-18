@@ -1,0 +1,8 @@
+# GitHub Pages builds this repository with Jekyll. The pages are plain HTML (no
+# front matter), so Jekyll copies them as they are; these sources stay unpublished.
+exclude:
+  - src
+  - tools
+  - config
+  - docs
+  - README.md

@@ -1,0 +1,274 @@
+<section class="bitz-hero" aria-labelledby="bitz-heading">
+  <div class="wrap bitz-hero-grid">
+    <div>
+      <div class="bitz-title">
+        <img class="pixel" src="/assets/bitz/art/icon-192.png" alt="" width="64" height="64">
+        <p><strong>Bitz</strong>A GibPlay Studios game</p>
+      </div>
+      <h1 id="bitz-heading">A tiny pixel cat who moves into your iPhone and iPad.</h1>
+      <p class="lede">Feed them, play little games, decorate five rooms and watch them grow up through the seasons, then check in from your Home Screen. No ads, no accounts, no tracking.</p>
+      {{release}}
+      <div class="actions">
+        <a class="btn btn-primary" href="#companion">See what's inside</a>
+        <a class="btn" href="/Bitz/support/">Support</a>
+      </div>
+    </div>
+
+    <figure class="stage" data-stage data-art="/assets/bitz/art/" id="demo">
+      <div class="stage-frame">
+        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112"
+             alt="Bitz, an orange pixel cat in a blue beanie and red scarf, sits on the rug of a cozy living room on an autumn day, with a window, bookshelf, sofa and fishbowl around them.">
+        <canvas width="160" height="112" role="img" hidden></canvas>
+      </div>
+      <div class="stage-controls" hidden>
+        <button type="button" class="btn btn-primary pet-btn" data-pet>Pet Bitz</button>
+        <div class="seg" role="group" aria-label="Time of day">
+          <button type="button" data-phase="day" aria-pressed="true">Day</button>
+          <button type="button" data-phase="night" aria-pressed="false">Night</button>
+        </div>
+        <div class="seg" role="group" aria-label="Season">
+          <button type="button" data-season="winter" aria-pressed="false"><span class="swatch swatch-winter" aria-hidden="true"></span>Winter</button>
+          <button type="button" data-season="spring" aria-pressed="false"><span class="swatch swatch-spring" aria-hidden="true"></span>Spring</button>
+          <button type="button" data-season="summer" aria-pressed="false"><span class="swatch swatch-summer" aria-hidden="true"></span>Summer</button>
+          <button type="button" data-season="autumn" aria-pressed="false"><span class="swatch swatch-autumn" aria-hidden="true"></span>Autumn</button>
+        </div>
+      </div>
+      <p class="stage-status" data-stage-status role="status" aria-live="polite"></p>
+      <figcaption class="stage-note">A small website demo drawn with the app's own pixel art. It isn't connected to any cat or save.</figcaption>
+      <script type="application/json" data-stage-words>{
+        "pet_day": "Bitz leans into your hand and purrs.",
+        "pet_night": "A sleepy purr. Bitz keeps on sleeping.",
+        "now_day": "Daytime: Bitz is up and about.",
+        "now_night": "Night: Bitz is curled up asleep on the cushion.",
+        "season_now": "Season: {season}.",
+        "scene_day": "Bitz in the main room by day, in {season}.",
+        "scene_night": "Bitz asleep on the cushion in the main room at night, in {season}.",
+        "season_winter": "winter", "season_spring": "spring", "season_summer": "summer", "season_autumn": "autumn"
+      }</script>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-alt" id="companion" aria-labelledby="companion-heading">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The companion</p>
+      <h2 id="companion-heading">A little life that follows your day.</h2>
+      <p class="lede">Bitz keeps your local time: stretching in the morning, roaming by day, settling in the evening and curling up to sleep at night. Come back and Bitz greets you.</p>
+      <div class="trio">
+        <div>
+          <h3>Care</h3>
+          <p>Fill the food and water bowls, brush them, give them a bath, clean the litter box and make the bed at night.</p>
+        </div>
+        <div>
+          <h3>Play</h3>
+          <p>Little games in every room, tricks to teach, toys to fetch and a lap to curl up on.</p>
+        </div>
+        <div>
+          <h3>Personality</h3>
+          <p>Curious, playful, sleepy or affectionate in their own mix. Bitz slowly learns to trust you and picks favourite toys and spots.</p>
+        </div>
+      </div>
+    </div>
+    <div class="phones">
+      <figure class="phone">
+        <img src="/assets/bitz/screens/iphone-en-2-cuddle.jpg" width="570" height="1240" loading="lazy"
+             alt="Bitz screenshot: the cat purrs on your lap in the bathroom, with Pet and Done buttons and bars for tummy, water, energy and comfort.">
+      </figure>
+      <figure class="phone">
+        <img src="/assets/bitz/screens/iphone-en-1-day.jpg" width="570" height="1240" loading="lazy"
+             alt="Bitz screenshot: the cat sniffs the grass in the garden on an autumn day, above Care, Pet, Play and Arrange buttons.">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="growth-heading">
+  <div class="wrap split reverse">
+    <div>
+      <p class="eyebrow">Growing up</p>
+      <h2 id="growth-heading">From kitten to grown-up, one week at a time.</h2>
+      <p class="lede">Your kitten becomes a young cat after a week and a grown-up after three. When Bitz is ready for the next stage, you choose the moment to see the change.</p>
+      <p>Growing up only changes how Bitz looks. Outfits, rooms and everything they've learned stay the same.</p>
+    </div>
+    <ol class="growth">
+      <li><div class="portrait"><img class="pixel" src="/assets/bitz/art/stage-kitten.png" width="26" height="26" loading="lazy" alt="Bitz as a small kitten."></div><strong>Kitten</strong><span>The first week</span></li>
+      <li><div class="portrait"><img class="pixel" src="/assets/bitz/art/stage-young.png" width="26" height="26" loading="lazy" alt="Bitz as a young cat, a little taller."></div><strong>Young cat</strong><span>After a week</span></li>
+      <li><div class="portrait"><img class="pixel" src="/assets/bitz/art/stage-adult.png" width="26" height="26" loading="lazy" alt="Bitz as a grown-up cat."></div><strong>Grown-up</strong><span>After three weeks</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt" id="rooms" aria-labelledby="rooms-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Rooms and seasons</p>
+      <h2 id="rooms-heading">Five rooms, four seasons, and a sky that follows the sun.</h2>
+      <p class="lede">Bitz wanders between the main room, bedroom, kitchen, bathroom and garden. Winter brings snow and a wood stove, spring seedlings and butterflies, summer a fan and fireflies, autumn falling leaves and pumpkins. Earn stars by playing, spend them on furniture and colours, and arrange every room your way.</p>
+    </div>
+    <ul class="rooms">
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/room-living.png" width="160" height="112" loading="lazy" alt="The main room with a sofa, window, bookshelf and Bitz sitting on the rug."><figcaption>Main room</figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/room-bedroom.png" width="160" height="112" loading="lazy" alt="The bedroom with a big quilted bed and Bitz loafing on the floor."><figcaption>Bedroom</figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/room-kitchen.png" width="160" height="112" loading="lazy" alt="The kitchen with cupboards, a stove and Bitz eating."><figcaption>Kitchen</figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/room-bathroom.png" width="160" height="112" loading="lazy" alt="The bathroom with a clawfoot tub, mirror and Bitz grooming."><figcaption>Bathroom</figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/room-garden.png" width="160" height="112" loading="lazy" alt="The garden with a white fence, an autumn tree and Bitz sniffing the grass."><figcaption>Garden</figcaption></figure></li>
+    </ul>
+
+    <div class="subhead">
+      <div>
+        <h3>Room themes</h3>
+        <p>Optional theme packs change a room's whole look, and every theme works in every room. Seasonal themes come back each year.</p>
+      </div>
+      <div class="carousel-buttons" data-carousel-buttons hidden>
+        <button type="button" class="btn" data-carousel="-1" aria-label="Previous themes">←</button>
+        <button type="button" class="btn" data-carousel="1" aria-label="Next themes">→</button>
+      </div>
+    </div>
+    <ul class="themes" data-carousel-track tabindex="0" aria-label="Room themes, scrollable">
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" loading="lazy" alt="Autumn cabin theme in the main room in the evening."><figcaption>Autumn cabin <span class="season-tag tag-autumn">Autumn</span><span class="blurb">Log walls, wide planks and a warm lantern.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" loading="lazy" alt="Lantern Night theme in the bedroom."><figcaption>Lantern Night <span class="season-tag tag-autumn">Autumn</span><span class="blurb">Plum walls with little moons and bats, and a string of pumpkin lanterns.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-retroDiner.png" width="160" height="112" loading="lazy" alt="Retro Diner theme in the kitchen."><figcaption>Retro Diner <span class="season-tag tag-year">All year</span><span class="blurb">A black-and-white checker floor, red panels with chrome trim and a neon coffee cup.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" loading="lazy" alt="Moon Pond theme in the garden at dusk."><figcaption>Moon Pond <span class="season-tag tag-year">All year</span><span class="blurb">Paper lanterns, a round moon window and a koi pond behind a moon gate.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-castleKeep.png" width="160" height="112" loading="lazy" alt="Castle Keep theme in the main room."><figcaption>Castle Keep <span class="season-tag tag-year">All year</span><span class="blurb">Stone walls, a pointed window, velvet drapes and heraldic banners.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-gingerbread.png" width="160" height="112" loading="lazy" alt="Gingerbread House theme in the kitchen."><figcaption>Gingerbread House <span class="season-tag tag-winter">Winter</span><span class="blurb">Iced gingerbread walls, gumdrops, peppermint tiles and a candy garland.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" loading="lazy" alt="Northern Lights theme in the bedroom at night."><figcaption>Northern Lights <span class="season-tag tag-winter">Winter</span><span class="blurb">Midnight walls with aurora ribbons, star lights and slate tiles.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-tulipMeadow.png" width="160" height="112" loading="lazy" alt="Tulip Meadow theme."><figcaption>Tulip Meadow <span class="season-tag tag-spring">Spring</span><span class="blurb">Delft tiles, a tulip frieze, blue shutters and a windmill beyond the fence.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-tropicalCabana.png" width="160" height="112" loading="lazy" alt="Tropical Cabana theme."><figcaption>Tropical Cabana <span class="season-tag tag-summer">Summer</span><span class="blurb">Bamboo walls, palm fronds, seagrass matting and a rattan lamp.</span></figcaption></figure></li>
+      <li><figure class="tile"><img class="pixel" src="/assets/bitz/art/theme-artDecoBath.png" width="160" height="112" loading="lazy" alt="Art Deco Bath theme in the bathroom."><figcaption>Art Deco Bath <span class="season-tag tag-year">All year</span><span class="blurb">Glossy black tiles with gold lines, sunburst fans and a white marble floor.</span></figcaption></figure></li>
+    </ul>
+
+    <div class="ipad">
+      <figure class="ipad-frame">
+        <img src="/assets/bitz/screens/ipad-en-4-cabin.jpg" width="825" height="1100" loading="lazy"
+             alt="Bitz on iPad: the main room in the Autumn cabin theme in the evening, with Bitz lounging on the sofa.">
+      </figure>
+      <div>
+        <h3>Roomy on iPad, too.</h3>
+        <p>Bitz is made for iPhone and iPad, with the same rooms, seasons and care on both. The sky outside follows sunrise and sunset through the year, without asking for your location.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-night" id="widgets" aria-labelledby="widgets-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Widgets and the Charging Room</p>
+      <h2 id="widgets-heading">On your Home Screen, and by your bed.</h2>
+    </div>
+    <div class="night-grid">
+      <div>
+        <div class="homescreen" role="img" aria-label="Three Bitz widgets on a Home Screen: a medium widget with Bitz in the main room, and two small widgets, one by day and one at night with Bitz asleep.">
+          <div class="widget widget-medium"><img src="/assets/bitz/art/widget-medium.png" width="154" height="72" alt="" loading="lazy"></div>
+          <div class="widget widget-small"><img src="/assets/bitz/art/widget-small-day.png" width="72" height="72" alt="" loading="lazy"></div>
+          <div class="widget widget-small"><img src="/assets/bitz/art/widget-small-night.png" width="72" height="72" alt="" loading="lazy"></div>
+        </div>
+        <h3>Widgets</h3>
+        <p>Small and medium Home Screen widgets, and Lock Screen widgets, show what Bitz is up to through the day. Pet or play right from a widget.</p>
+        <p class="note">Widgets show a snapshot of Bitz that refreshes through the day, not a continuous animation. Open the app for the latest moment.</p>
+      </div>
+      <div>
+        <div class="charging" role="img" aria-label="Illustration of the Charging Room in landscape: a large clock showing 21:30, the date, the charging level, and Bitz sipping milk by the charger in the main room.">
+          <div class="charging-clock" aria-hidden="true">
+            <span class="time">21:30</span>
+            <span class="date">Tuesday, October 6</span>
+            <span class="power">Charging, 64%</span>
+          </div>
+          <img src="/assets/bitz/art/charging-room.png" width="160" height="112" alt="" loading="lazy">
+        </div>
+        <h3>The Charging Room</h3>
+        <p>With Bitz open, plug in your iPhone and turn it sideways: the Charging Room turns it into a cozy bedside clock with the time, the date, the battery level and Bitz carrying on with their evening. The screen stays on only while the Charging Room is showing and your iPhone is charging.</p>
+        <p class="note">The Charging Room is a screen inside Bitz, not StandBy. For StandBy, add the Bitz widget there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="friends" aria-labelledby="friends-heading">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Nearby Friends</p>
+      <h2 id="friends-heading">Visits when you're together.</h2>
+      <p class="lede">Turn on Nearby Friends and invite a friend's cat over when you're in the same place. The cats meet in the garden for a little while; nothing else changes.</p>
+      <ul class="checklist">
+        <li>Off by default, and only works while Bitz is open on both phones.</li>
+        <li>Phones connect directly over Wi-Fi or Bluetooth with Apple's encrypted Multipeer Connectivity. No account, no server, no location.</li>
+        <li>A visit needs a yes on both phones. Players you meet can see your display name, so a nickname is best.</li>
+        <li>Block a cat in the Friends tab at any time. <a href="/Bitz/privacy/#nearby">What Nearby Friends shares</a></li>
+      </ul>
+    </div>
+    <figure class="framed-figure">
+      <div class="framed"><img class="pixel" src="/assets/bitz/art/visit-55.png" width="160" height="112" loading="lazy" alt="A visit in the garden: Bitz in a beanie and scarf and a friend's grey cat in a beret, drawn by Bitz's visit renderer."></div>
+      <figcaption class="caption">A visit in the garden, drawn by the app. Names and looks come from each player's own cat.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-alt" id="scrapbook" aria-labelledby="scrapbook-heading">
+  <div class="wrap split reverse">
+    <div>
+      <p class="eyebrow">Scrapbook</p>
+      <h2 id="scrapbook-heading">Little adventures, kept in a scrapbook.</h2>
+      <p class="lede">Some days Bitz heads out to explore the neighbourhood and comes home with a wrapped gift: a souvenir, a Polaroid and a short story for your Scrapbook.</p>
+      <p>The Journal keeps every departure, return and opened gift, so you never miss what Bitz got up to.</p>
+    </div>
+    <ul class="polaroids">
+      <li><img class="pixel" src="/assets/bitz/art/memory-cornerStore.png" width="96" height="72" loading="lazy" alt="Polaroid of Bitz outside the corner store in autumn."><p><img class="pixel" src="/assets/bitz/art/souvenir-bottleCap.png" width="16" height="16" alt="">Shiny bottle cap</p></li>
+      <li><img class="pixel" src="/assets/bitz/art/memory-park.png" width="96" height="72" loading="lazy" alt="Polaroid of Bitz in the park in spring."><p><img class="pixel" src="/assets/bitz/art/souvenir-smoothPebble.png" width="16" height="16" alt="">Smooth pebble</p></li>
+      <li><img class="pixel" src="/assets/bitz/art/memory-rooftop.png" width="96" height="72" loading="lazy" alt="Polaroid of Bitz on the rooftops in winter."><p><img class="pixel" src="/assets/bitz/art/souvenir-feather.png" width="16" height="16" alt="">Blue feather</p></li>
+      <li><img class="pixel" src="/assets/bitz/art/memory-bakery.png" width="96" height="72" loading="lazy" alt="Polaroid of Bitz outside the bakery in summer."><p><img class="pixel" src="/assets/bitz/art/souvenir-cherryPetal.png" width="16" height="16" alt="">Cherry blossom</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="wardrobe" aria-labelledby="wardrobe-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Wardrobe</p>
+      <h2 id="wardrobe-heading">Dress up, decorate, make it yours.</h2>
+      <p class="lede">Hats, scarves, glasses and capes to mix and match. Outfits are never put on automatically: dress Bitz when you like.</p>
+    </div>
+    <ul class="wardrobe">
+      <li><img class="pixel" src="/assets/bitz/art/wear-stargazer.png" width="26" height="26" loading="lazy" alt="Bitz in a wizard hat, crescent specs, moon pendant and star cloak."><strong>Stargazer</strong></li>
+      <li><img class="pixel" src="/assets/bitz/art/wear-sailor.png" width="26" height="26" loading="lazy" alt="Bitz in a sailor cap and collar with a life ring."><strong>Sailor</strong></li>
+      <li><img class="pixel" src="/assets/bitz/art/wear-royal.png" width="26" height="26" loading="lazy" alt="Bitz in a royal crown, ruff collar and ermine cape."><strong>Royal</strong></li>
+      <li><img class="pixel" src="/assets/bitz/art/wear-rainyDay.png" width="26" height="26" loading="lazy" alt="Bitz in a sou'wester, cloud collar and rain slicker."><strong>Rainy Day</strong></li>
+      <li><img class="pixel" src="/assets/bitz/art/wear-snowDay.png" width="26" height="26" loading="lazy" alt="Bitz in a pom toque, cable cowl, snow goggles and puffer vest."><strong>Snow Day</strong></li>
+      <li><img class="pixel" src="/assets/bitz/art/wear-explorer.png" width="26" height="26" loading="lazy" alt="Bitz in a safari hat, explorer goggles and neckerchief."><strong>Explorer</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt" id="purchases" aria-labelledby="purchases-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Purchases</p>
+      <h2 id="purchases-heading">Simple, optional, yours to keep.</h2>
+      <p class="lede">Bitz will be free to download. Everything you need to care for and play with Bitz is included.</p>
+    </div>
+    <div class="panel">
+      <ul class="facts-list">
+        <li><strong>Optional and cosmetic</strong><span>Packs add room themes, collections of decor and outfits. They never give a gameplay advantage.</span></li>
+        <li><strong>Bought once, kept forever</strong><span>No subscriptions and nothing expires. Each pack shows what it contains and its App Store price before you buy.</span></li>
+        <li><strong>Restore on a new device</strong><span>Use Restore Purchases with the same Apple Account. It restores packs, not your cat: for that, export a backup in Settings. <a href="/Bitz/support/#restore">How restoring works</a></span></li>
+        <li><strong>Seasonal packs return</strong><span>Some packs are offered in their season and come back every year. Packs you own are yours in every season.</span></li>
+      </ul>
+      <ul class="promise" aria-label="Privacy at a glance">
+        <li>No ads</li><li>No accounts</li><li>No tracking</li><li>Your cat stays on your device</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section get" id="get" aria-labelledby="get-heading">
+  <div class="wrap">
+    <p class="eyebrow">Availability</p>
+    <h2 id="get-heading">Getting Bitz</h2>
+    {{release}}
+    <div class="actions">
+      <a class="btn" href="#demo">Back to the demo</a>
+      <a class="btn" href="/Bitz/support/">Support</a>
+      <a class="btn" href="/Bitz/privacy/">Privacy policy</a>
+    </div>
+  </div>
+</section>

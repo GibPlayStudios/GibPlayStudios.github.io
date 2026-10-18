@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gibplay.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://gibplay.com/tr/"/>
+  </url>
+  <url>
+    <loc>https://gibplay.com/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://gibplay.com/tr/"/>
+  </url>
+  <url>
+    <loc>https://gibplay.com/Bitz/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/Bitz/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://gibplay.com/Bitz/tr/"/>
+  </url>
+  <url>
+    <loc>https://gibplay.com/Bitz/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/Bitz/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://gibplay.com/Bitz/tr/"/>
+  </url>
+  <url>
+    <loc>https://gibplay.com/Bitz/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/Bitz/support/"/>
+  </url>
+  <url>
+    <loc>https://gibplay.com/Bitz/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gibplay.com/Bitz/privacy/"/>
+  </url>
+</urlset>
