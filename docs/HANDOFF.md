@@ -1,14 +1,16 @@
 # gibplay.com handoff to the Bitz release session
 
-From the website session, 2026-10-18. Answers the five questions in Bitz `docs/WEBSITE_HANDOFF.md`.
+From the website session, updated 2026-10-18 after the second deployment. Answers the five questions in Bitz
+`docs/WEBSITE_HANDOFF.md`.
 
 ## 1. Commit and deployment
 
 | | |
 | --- | --- |
-| Repository | `GibPlayStudios/GibPlayStudios.github.io`, branch `main`, GitHub Pages (legacy Jekyll build from `main` /) |
-| Website commit | see `git log` (status below) |
-| Deployment | **PENDING** — see "Unresolved" |
+| Repository | `GibPlayStudios/GibPlayStudios.github.io`, branch `main`, GitHub Pages (Jekyll build from `main` /) |
+| Live commit | `3924cb6` ("Add files via upload"; Pages build `built`, 2026-10-18 14:01 UTC). Its site files are identical to the website session's commit `2607292`. |
+| How it was deployed | The owner uploaded the files on github.com; the `berkay-yilmaz` account has read-only access, so `git push` from this Mac is refused (403). |
+| Verified live | Every route below returns 200 over HTTPS; the live HTML matches the local build byte for byte, except the `<!--email_off-->` markers that Cloudflare consumes as intended. |
 
 ## 2. URLs, canonical and www
 
@@ -23,71 +25,109 @@ From the website session, 2026-10-18. Answers the five questions in Bitz `docs/W
 
 - `CNAME` unchanged: `gibplay.com`. DNS is on Cloudflare (proxied); GitHub's certificate covers `gibplay.com`
   and `www.gibplay.com`.
-- `https://www.gibplay.com/` → 301 → `https://gibplay.com/` (Cloudflare, verified 2026-10-18 before this deploy).
+- `https://www.gibplay.com/` → 301 → `https://gibplay.com/` (verified again after deployment).
 - Each page's `<link rel="canonical">` is the https apex URL with a trailing slash.
-- `http://gibplay.com/` is served over plain HTTP (200), not redirected; see "Unresolved".
+- `/bitz/` (lowercase) is a 404 on GitHub Pages; the 404 page forwards it to `/Bitz/` with JavaScript and links
+  there without it.
 
 ## 3. English / Turkish
 
 - Marketing pages use separate URLs: `/` ↔ `/tr/`, `/Bitz/` ↔ `/Bitz/tr/` (with `hreflang` alternates).
 - **Support and privacy keep the app's scheme: one page each, English first, Turkish in the section with
   `id="tr"` and `lang="tr"`.** The app's links (`…/Bitz/support/`, `…/Bitz/privacy/`, plus `#tr` on Turkish
-  phones) work as planned; no separate Turkish URLs to wire up.
+  phones) work as planned.
 - Stable anchors on support: `#contact #purchases #packs #seasonal #restore #save #refunds #health #widgets
   #charging #nearby #data`, Turkish the same with `tr-` (`#tr-restore` …). Privacy: `#short #who #device
-  #nearby #purchases #apple #web #rights #children #changes`, Turkish with `tr-`.
+  #nearby #purchases #apple #web #rights #children #changes`, Turkish with `tr-`. Unchanged by the redesign.
 
 ## 4. Support and privacy text
 
 - Imported **verbatim** from the Bitz repo's `docs/site/support.html` and `docs/site/privacy.html` by
-  `tools/import_bitz_docs.py` (word-for-word comparison: identical). Imported file versions (SHA-256) are in
-  `config/bitz-docs-source.json`. **These were the working-tree versions on 2026-10-18, which include the
-  uncommitted build 6 changes** (Nearby Friends shares only the cat's look until an invitation; Report; the
-  "Bitz 1.0, build 6 and later" effective line). If that text changes again, re-run the importer and the build.
+  `tools/import_bitz_docs.py` (word-for-word comparison: identical). SHA-256 of the published sources is in
+  `config/bitz-docs-source.json`; they still match the Bitz repo, where that text is now committed in `8a8057e`
+  ("Nearby privacy redesign …", the build 6 wording). If the text changes again: re-run the importer and
+  `tools/build.py`, then deploy.
 - Layout-only changes: relative links became `/Bitz/`, `/Bitz/support/`, `/Bitz/privacy/` (`#tr` kept);
   headings got anchors; a table of contents was added.
 - **One addition on support** (both languages): "Charging Room and StandBy" / "Şarj Odası ve StandBy", built
   from the app's own strings (`chargingRoomStandByNote`, `guideInApp`, `guideClosed`,
   `chargingRoomAwakeFooter`, `chargingRoomLayoutFooter`, `guideUnlockNote` and their Turkish catalog values). It
-  refers to "Settings › Charging Room" (`SettingsView.swift`). Please check it and copy it into
-  `docs/site/support.html` if you agree, or tell the website session to change it.
-- The privacy promise for web pages holds: no cookies, analytics, ads, third-party fonts or scripts; every page
-  sets a Content-Security-Policy limited to its own origin. Hosting remains GitHub Pages behind Cloudflare.
-  Cloudflare adds a Network Error Logging header (`nel`/`report-to`, reports to `a.nel.cloudflare.com`), which
-  falls under "delivered through Cloudflare".
-- Cloudflare **Email Address Obfuscation is on** for gibplay.com; it would rewrite addresses into
-  "[email protected]" plus a script. Every page body is wrapped in `<!--email_off-->`, so `info@gibplay.com`
-  stays a plain `mailto:` link.
+  refers to "Settings › Charging Room". Please check it and copy it into `docs/site/support.html` if you agree.
+- The homepage redesign did not touch support or privacy content.
+- Email: Cloudflare Email Address Obfuscation is on for the domain; every page body is wrapped in
+  `<!--email_off-->`, and live pages serve plain `mailto:info@gibplay.com` links (verified).
 
 ## 5. Release button
 
 `config/release.json`: `status: "coming-soon"`, App Store ID `6824056606`, future URL
-`https://apps.apple.com/app/id6824056606`. Verified not public on 2026-10-18 (lookup API: 0 results; app URL
-404). Steps to switch, including Apple's official badge: `docs/RELEASE_BUTTON.md`.
+`https://apps.apple.com/app/id6824056606`. Not public on 2026-10-18 (lookup API: 0 results; app URL 404). The
+homepage's Bitz card and the Bitz pages read the same setting. Switching, including Apple's official badge:
+`docs/RELEASE_BUTTON.md`.
+
+## What changed in the second deployment
+
+**Bitz interactive preview (root cause).** On the first deployment the preview never showed. The fallback
+picture (the autumn room with Bitz baked in) got the `hidden` attribute when the preview started, but the CSS
+rule `.stage-frame img { display: block }` overrode it, so the picture stayed in the frame and pushed the live
+canvas below the frame's clipped edge. Visitors only ever saw the static autumn picture while the buttons and
+status text changed, which explains "Spring selected but a pumpkin is visible" and "Pet does nothing". The
+exported scene art was correct (only autumn has the pumpkin; spring has a watering can, summer a fan, winter a
+stove).
+
+Fixes: the layers are stacked absolutely and `[hidden]` always wins; scene requests are versioned so quick
+clicks can't leave an older scene on screen; failed loads retry and the buttons fall back to the scene shown;
+petting uses the app's own "just petted" frames (celebrate pose, hearts, purr lines) with one reaction at a
+time; at night Bitz keeps sleeping with the app's heart sprite; reduced motion shows still reactions; a visible
+"Interactive preview" label and a scene tag ("Spring · Night") that changes only once that scene is drawn.
+
+**Studio homepage.** `/` and `/tr/` now use a neutral studio identity (`assets/css/studio.css`: off-white or
+charcoal, muted teal accent, system typography, a short transform-only entrance rise). Structure: header
+(Games, About, Contact, language), introduction ("Thoughtful games, distinctive worlds." / "Özenli oyunlar,
+kendine özgü dünyalar."), a featured Bitz card in Bitz's own colours with real art, release status and
+"Explore Bitz", a modest "More to come" note (no names, dates or placeholder cards), About, Contact, footer.
+Bitz pages keep their pixel style.
+
+**Studio homepage, light redesign (third change).** `/` and `/tr/` are now light in every system theme:
+warm off-white, charcoal text and the logo's pink, coral, peach and warm yellow, with geometric hero artwork
+based on the logo, subtle hover/focus transitions and drifting shapes that stop under reduced motion. The
+homepage has its own stylesheet version (`STUDIO_ASSET_VERSION` in `tools/build.py`); all 98 Bitz files
+(pages, demo, art, support, privacy, 404) were checked byte-identical before and after.
+
+## Tests
+
+Local and again on the live site after deployment (headless Chrome driven through the DevTools protocol,
+cache disabled, with screenshots of what is actually rendered):
+
+- Preview, English and Turkish: idle sprite animation; Pet by button, by clicking Bitz, by keyboard (Enter) and
+  by touch on a 390 px phone; 8 rapid pets settle back to idle; all 8 season × day/night scenes, with the
+  rendered room, pressed buttons and scene tag all matching; 9 rapid clicks end on the last choice; a swipe that
+  starts on the preview still scrolls the page; reduced motion shows still idle and still reactions.
+- No-JavaScript: the still picture shows and no controls appear (checked locally).
+- Homepage: desktop 1280, tablet 820 and phone 390, light and dark, English and Turkish.
+- No horizontal overflow on any page at 320, 375, 430, 768, 1024 and 1440 px; every internal link, anchor and
+  asset resolves with exact case.
+- Console: no errors from the site. See Cloudflare Web Analytics below.
+
+## Unresolved (owner)
+
+1. **Delete the `upload-2607292/` folder from the repository.** The web upload added a duplicate copy of the site
+   there, and it is publicly reachable (for example `https://gibplay.com/upload-2607292/Bitz/`). On github.com:
+   open the folder, "…" menu, **Delete directory**, commit. `_config.yml` now also excludes `upload-*` so a
+   future accidental upload folder isn't published.
+2. **Cloudflare Web Analytics is on** for gibplay.com: Cloudflare adds `static.cloudflareinsights.com/beacon.min.js`
+   to the pages. The site's Content-Security-Policy blocks it (no data is sent), but it shows as a console
+   error and contradicts the "no analytics" promise. Turn it off in the Cloudflare dashboard (Analytics & Logs ›
+   Web Analytics).
+3. `http://` is not redirected to `https://`. Turn on Cloudflare "Always Use HTTPS" (or GitHub "Enforce HTTPS").
+4. Push access: grant `berkay-yilmaz` Write access to the repository (or push from the GibPlayStudios account) so
+   future deployments are exact commits instead of web uploads.
 
 ## Inconsistencies for the owner
 
-- **Studio name:** the website uses "GibPlay Studios" (as requested for the site); the app, privacy policy and
-  App Store copyright use "Gibplay Game Studio"; the old site used "GIB Play Studios". Support/privacy text keeps
-  "Gibplay Game Studio" as written. Pick one and tell both sessions.
-- **Email:** the old site footer used `hello@gibplay.com`; the app and App Store Connect use
-  `info@gibplay.com`. The site uses only `info@gibplay.com`. No test email was sent.
-- The old site said "Istanbul / Kocaeli"; the new site states no location.
+- **Studio name:** the website uses "GibPlay Studios"; the app, privacy policy and App Store copyright use
+  "Gibplay Game Studio"; the old site used "GIB Play Studios". Support/privacy text keeps "Gibplay Game Studio"
+  as written. Pick one and tell both sessions.
+- **Email:** the old site used `hello@gibplay.com`; the app and App Store Connect use `info@gibplay.com`. The site
+  uses only `info@gibplay.com`. No test email was sent.
 
-## Tests (local, 2026-10-18)
-
-- Rendered with Chrome (headless and the in-app browser) at 320, 375, 430, 768, 1024, 1280 and 1440 px:
-  no horizontal overflow or broken images on any page; light and dark mode.
-- English and Turkish pages; keyboard: skip link, visible focus ring, stage buttons by keyboard.
-- Stage: pet (hearts + live status text), day/night, four seasons, idle walking; pauses offscreen and in
-  hidden tabs; with reduced motion Bitz is shown still and petting shows a still reaction; without JavaScript a
-  still picture shows and no dead controls appear.
-- Link crawl: every internal link, image and anchor resolves with exact case; only external links are
-  `reportaproblem.apple.com` and Apple's privacy policies. Network: same-origin requests only. Console: no errors.
-
-## Unresolved
-
-- Deployment status: see section 1.
-- `http://` is not redirected to `https://`. GitHub's "Enforce HTTPS" is off and Cloudflare serves HTTP. Turn on
-  Cloudflare "Always Use HTTPS" (or GitHub "Enforce HTTPS") — an account setting this session didn't change.
-- The old pages at `https://berkay-yilmaz.github.io/bitz-app/` were not touched and keep working.
+The old pages at `https://berkay-yilmaz.github.io/bitz-app/` were not touched.

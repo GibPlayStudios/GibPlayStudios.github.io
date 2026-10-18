@@ -19,6 +19,8 @@ EMAIL = "info@gibplay.com"
 YEAR = "2026"
 RELEASE = json.loads((ROOT / "config/release.json").read_text())
 ASSET_VERSION = "8"
+# The studio homepage has its own version, so homepage-only changes never touch the Bitz pages.
+STUDIO_ASSET_VERSION = "s2"
 
 PAGES = [
     {"src": "home.en.html", "out": "index.html", "path": "/", "lang": "en", "section": "home",
@@ -134,7 +136,7 @@ def head(page):
     url = SITE + page["path"]
     bitz_icon = page.get("icon") == "bitz"
     studio = page.get("theme") == "studio"
-    light_bg, dark_bg = ("#f6f5f2", "#121417") if studio else ("#f9efe1", "#211820")
+    light_bg, dark_bg = ("#fdfbf8", "#fdfbf8") if studio else ("#f9efe1", "#211820")
     lines = [
         "<!doctype html>",
         f'<html lang="{lang}">',
@@ -147,7 +149,7 @@ def head(page):
         '<meta name="referrer" content="strict-origin-when-cross-origin">',
         f"<title>{html.escape(page['title'])}</title>",
         f'<meta name="description" content="{html.escape(page["description"])}">',
-        '<meta name="color-scheme" content="light dark">',
+        f'<meta name="color-scheme" content="{"light" if studio else "light dark"}">',
         f'<meta name="theme-color" content="{light_bg}" media="(prefers-color-scheme: light)">',
         f'<meta name="theme-color" content="{dark_bg}" media="(prefers-color-scheme: dark)">',
     ]
@@ -183,7 +185,7 @@ def head(page):
                   '<link rel="icon" type="image/png" sizes="160x160" href="/assets/img/gibplay-logo-160.png">',
                   '<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">']
     if page.get("theme") == "studio":
-        lines.append(f'<link rel="stylesheet" href="/assets/css/studio.css?v={ASSET_VERSION}">')
+        lines.append(f'<link rel="stylesheet" href="/assets/css/studio.css?v={STUDIO_ASSET_VERSION}">')
     else:
         lines.append(f'<link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">')
     if page["section"] == "home" and lang == "en":
@@ -282,9 +284,28 @@ def footer(page):
 </footer>"""
 
 
+# Decorative hero artwork for the studio homepage: the logo's play shape, a warm
+# circle and a few small forms in the logo's pink, coral, peach and yellow.
+STUDIO_ART = """<svg class="hero-art" viewBox="0 0 520 480" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
+    <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
+    <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".16"/></pattern>
+  </defs>
+  <rect class="shape s-dots" x="350" y="300" width="126" height="108" fill="url(#g-dots)"/>
+  <g class="shape s-play"><path d="M120 92 L120 388 L392 240 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="56" stroke-linejoin="round"/></g>
+  <circle class="shape s-sun" cx="372" cy="318" r="84" fill="url(#g-sun)" opacity=".92"/>
+  <rect class="shape s-square" x="398" y="74" width="48" height="48" rx="12" fill="#f7c46a" transform="rotate(14 422 98)"/>
+  <circle class="shape s-dot" cx="78" cy="426" r="15" fill="#ef7ba5"/>
+  <circle class="shape s-ring" cx="456" cy="196" r="20" fill="none" stroke="#f2867f" stroke-width="7"/>
+  <g class="shape s-badge"><circle cx="214" cy="240" r="74" fill="#fffdfa"/><image href="/assets/img/gibplay-logo-160.png" x="166" y="192" width="96" height="96"/></g>
+</svg>"""
+
+
 def fill(text, page):
     lang = page["lang"]
     replacements = {
+        "{{studio_art}}": STUDIO_ART,
         "{{release}}": release_block(lang),
         "{{release_short}}": release_short(lang),
         "{{release_compact}}": release_compact(lang),
