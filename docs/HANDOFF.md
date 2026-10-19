@@ -114,12 +114,16 @@ cache disabled, with screenshots of what is actually rendered):
 1. **Delete the `upload-2607292/` folder from the repository** (github.com: open the folder, "…" menu,
    **Delete directory**, commit). It is no longer published (`_config.yml` excludes `upload-*`), but the copy is
    still public in the repository.
-2. `http://` is not redirected to `https://` (checked 2026-10-18). Turn on Cloudflare "Always Use HTTPS" (or
-   GitHub "Enforce HTTPS").
+2. Domain verification: GitHub (GibPlayStudios › Settings › Pages › Verified domains) has generated the TXT
+   record `_github-pages-challenge-GibPlayStudios.gibplay.com`; add it in Cloudflare DNS with the value shown on
+   that GitHub page, then click Verify there. Until then another GitHub account could claim gibplay.com if
+   Pages were ever switched off.
 3. Push access: grant `berkay-yilmaz` Write access to the repository (or push from the GibPlayStudios account) so
    future deployments are exact commits instead of web uploads.
 
-Resolved since the first handoff: Cloudflare Web Analytics is off (no script injected, checked 2026-10-18); the
+Resolved since the first handoff: `http://` now redirects to `https://` (Cloudflare "Always Use HTTPS"; GitHub
+"Enforce HTTPS" turned on 2026-10-18 with Cloudflare SSL mode Full (strict), checked without redirect loops;
+edge certificate for gibplay.com and *.gibplay.com valid until 2026-12-12); Cloudflare Web Analytics is off (no script injected, checked 2026-10-18); the
 legal texts use the studio name **GibPlay Studios**; support and privacy now describe the support-email route
 (Cloudflare Email Routing, Gmail, Brevo), retention, legal bases and KVKK rights. The Bitz repository's
 `docs/site` sources carry the same text (local changes there must be committed with the app).

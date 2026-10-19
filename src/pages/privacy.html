@@ -1,4 +1,4 @@
-<!-- Imported from Bitz docs/site/privacy.html (sha256 9c34b618f383c98c) by tools/import_bitz_docs.py. Edit the
+<!-- Imported from Bitz docs/site/privacy.html (sha256 dbff9f02ea6d0493) by tools/import_bitz_docs.py. Edit the
      wording in the Bitz repository and re-import; only the layout lives here. -->
 <section class="doc-hero" aria-labelledby="privacy-heading">
   <div class="wrap">
@@ -34,11 +34,13 @@
 <p class="meta">Effective October 18, 2026 (Bitz 1.0, build 6 and later). Applies to the Bitz app and its widgets for iPhone and iPad, to
 the gibplay.com web pages, and to email sent to info@gibplay.com.</p>
 
-<div class="callout" id="short"><p><strong>In short:</strong> the Bitz app has no account, no ads, no analytics, no tracking and no
-server. The app itself sends the developer nothing; we receive only emails you choose to send us, such as a
-Report. Your game is saved on your device. With Nearby Friends
-on, nearby players see only your cat's look; your cat's name and your display name go only to a player you
-invite or whose invitation you accept, and to the cats in a visit you join. Apple handles purchases. If you
+<div class="callout" id="short"><p><strong>In short:</strong> the Bitz app has no account, no ads, no analytics and no tracking, and there is
+no developer server: the app sends nothing to us. We receive only emails you choose to send us, such as a
+Report. Your game is saved on your device. Purchases go through Apple's App Store, which processes them under
+Apple's terms and gives us sales reports, not who you are. With Nearby Friends on, nearby players receive your
+cat's look under a code that changes each session, but not your names; your cat's name, your display name and
+your cat's permanent code go only to a player you invite or whose invitation you accept, and to the cats in a
+visit you join. If you
 email us, your message reaches our Gmail mailbox through Cloudflare, and our replies are sent through Brevo; see
 <a href="#web">Support email and these web pages</a>.</p></div>
 
@@ -72,11 +74,14 @@ a picture or a milestone, or when your own device backup (iCloud or a computer) 
 <p>When you turn it on, and only while Bitz is open, Bitz uses Apple's encrypted Multipeer Connectivity to
 find other Bitz players physically nearby, over Wi-Fi or Bluetooth, without any server.</p>
 <ul>
-<li><strong>Before anyone acts:</strong> nearby devices with Nearby Friends on see only your cat's look
-(coat, markings, eyes), what it wears and its growth stage, under a random code that changes every time
-Nearby Friends starts. No names and no lasting identifier.</li>
+<li><strong>Before anyone acts:</strong> your phone announces itself to nearby devices with only a random
+12-character code and the Bitz version. The code is new every time Nearby Friends starts. Each nearby phone
+that connects (it also has Nearby Friends on) receives your cat's look (coat, markings, eyes), what it wears
+and its growth stage, labelled with that code. This does not include your cat's name, your display name or
+your cat's permanent code. Your cat's look stays the same between sessions, so someone who has seen it
+before may recognise it.</li>
 <li><strong>When you invite someone</strong> (and confirm), that one player receives your cat's name, your
-display name and a code that stays the same for your cat, so they can see who is inviting and keep you as a
+display name and a permanent code that Bitz created for your cat, so they can see who is inviting and keep you as a
 friend. <strong>When you accept an invitation</strong>, the inviter receives the same about you. In a visit
 everyone agreed to, the cats in it see each other's names.</li>
 <li><strong>During a visit:</strong> actions such as waves and plays go to the cats in the visit.</li>
@@ -115,15 +120,18 @@ our Gmail mailbox, a Google account, where it is stored. Cloudflare states that 
 content; it records routing details (such as sender, recipient and subject), which we can see in its dashboard
 for a limited time (Cloudflare documents 31 days for its routing analytics). We write replies in Gmail, and they
 are sent through Brevo's email delivery service, so Brevo processes the reply, your email address and delivery
-records. Brevo keeps those delivery records for one month and is set not to store copies of our replies. Links in our
-replies currently pass through Brevo's redirect service (r.info.gibplay.com) before reaching their destination,
-so Brevo receives the IP address and time of a click, and Brevo may also record whether a reply was opened.
-Brevo states that opens and clicks from people who haven't agreed to tracking are not linked to a contact
-profile; we don't ask anyone to agree, and we don't use this for marketing.</li>
+records. Brevo keeps those delivery records for one month and is set not to store copies of our replies. Brevo
+adds open and click tracking to our replies, and Brevo has confirmed that it cannot be switched off for our
+account: links in
+our replies pass through Brevo's redirect service (r.info.gibplay.com) before reaching their destination, so
+Brevo receives the IP address and time of a click, and Brevo records when a reply is opened. Our account is set
+so that Brevo records these events without linking them to your email address. We don't ask anyone to agree to
+this tracking, and we don't use it for marketing or for anything else.</li>
 <li><strong>How long:</strong> we delete support conversations 12 months after the last message and Report
-emails 6 months after the report is resolved. If a specific message is still needed for an open issue, a dispute
-or a legal claim, we keep only that message, and only until the matter is closed. You can ask us to delete your
-messages sooner. We answer requests about your data, including deletion requests, within 30 days; if we have to
+emails 6 months after the report is resolved. We label support and Report emails in our mailbox and review it
+once a month, deleting messages that have reached these limits, so a message can remain up to about a month
+longer. If a specific message is still needed for an open issue, a dispute or a legal claim, we keep only that
+message, and only until the matter is closed. You can ask us at any time to delete your messages. We answer requests about your data, including deletion requests, within 30 days; if we have to
 keep something for one of these reasons, we tell you what and why.</li>
 </ul>
 <h3 id="hosting">These web pages</h3>
@@ -149,11 +157,10 @@ pages, automatically through our hosting providers.</p>
 <ul>
 <li><strong>Answering questions about Bitz and your purchases</strong> (your email address, name, message and
 attachments): necessary for the performance of the licence agreement for Bitz between you and us (KVKK art.
-5(2)(c)). Kept 12 months after the last message.</li>
+5(2)(c)). Retention: see <em>How long</em> above.</li>
 <li><strong>Answering other messages and reviewing Report emails</strong> (as above, and for reports the reported
 player's cat name and display name): our legitimate interest in answering people who write to us and keeping
-Nearby Friends safe, without overriding your rights (KVKK art. 5(2)(f)). Support conversations are kept 12 months
-after the last message, Report emails 6 months after the report is resolved.</li>
+Nearby Friends safe, without overriding your rights (KVKK art. 5(2)(f)). Retention: see <em>How long</em> above.</li>
 <li><strong>Delivering and protecting these web pages</strong> (IP address, browser details, the page requested,
 reports of failed page loads): our legitimate interest in running a working and secure website (KVKK art.
 5(2)(f)). Kept by GitHub and Cloudflare under their own retention periods.</li>
@@ -193,11 +200,13 @@ we will delete it.</p>
 <p class="meta">Yürürlük tarihi: 18 Ekim 2026 (Bitz 1.0, yapı 6 ve sonrası). iPhone ve iPad için Bitz uygulamasını ve widget'larını,
 gibplay.com web sayfalarını ve info@gibplay.com adresine gönderilen e-postaları kapsar.</p>
 
-<div class="callout" id="tr-short"><p><strong>Kısaca:</strong> Bitz uygulamasında hesap, reklam, analiz, takip ya da sunucu yok.
-Uygulama geliştiriciye kendiliğinden hiçbir şey göndermez; yalnızca bize göndermeyi seçtiğin e-postaları (örneğin
-Bildir) alırız. Oyunun cihazında saklanır. Yakındaki Arkadaşlar açıkken yakındaki
-oyuncular yalnızca kedinin görünümünü görür; kedinin adı ve görünen adın yalnızca davet ettiğin ya da davetini
-kabul ettiğin oyuncuya ve katıldığın bir ziyaretteki kedilere gider. Satın alımları Apple yürütür. Bize e-posta
+<div class="callout" id="tr-short"><p><strong>Kısaca:</strong> Bitz uygulamasında hesap, reklam, analiz ya da takip yok ve bir geliştirici
+sunucusu da yok: uygulama bize hiçbir şey göndermez. Yalnızca bize göndermeyi seçtiğin e-postaları (örneğin
+Bildir) alırız. Oyunun cihazında saklanır. Satın alımlar Apple'ın App Store'u üzerinden yapılır; Apple bunları
+kendi koşullarıyla işler ve bize kim olduğunu değil, satış raporlarını verir. Yakındaki Arkadaşlar açıkken
+yakındaki oyuncular kedinin görünümünü her oturumda değişen bir kodla alır, adlarını almaz; kedinin adı, görünen
+adın ve kedinin kalıcı kodu yalnızca davet ettiğin ya da davetini kabul ettiğin oyuncuya ve katıldığın bir
+ziyaretteki kedilere gider. Bize e-posta
 gönderirsen mesajın Cloudflare üzerinden Gmail posta kutumuza ulaşır, yanıtlarımız Brevo üzerinden gönderilir;
 bkz. <a href="#tr-web">Destek e-postası ve bu web sayfaları</a>.</p></div>
 
@@ -229,11 +238,13 @@ paylaşırsan veya kendi cihaz yedeğin (iCloud ya da bilgisayar) uygulama veril
 <p>Açtığında ve yalnızca Bitz açıkken Bitz, fiziksel olarak yakındaki diğer Bitz oyuncularını sunucu olmadan,
 Wi-Fi ya da Bluetooth üzerinden bulmak için Apple'ın şifreli Multipeer Connectivity bağlantısını kullanır.</p>
 <ul>
-<li><strong>Kimse bir şey yapmadan önce:</strong> Yakındaki Arkadaşlar'ı açık olan yakın cihazlar yalnızca
-kedinin görünümünü (tüy, desen, gözler), giydiklerini ve büyüme aşamasını, Yakındaki Arkadaşlar her
-başladığında değişen rastgele bir kodla görür. Ad yok, kalıcı bir kimlik yok.</li>
+<li><strong>Kimse bir şey yapmadan önce:</strong> telefonun kendini yakındaki cihazlara yalnızca rastgele 12
+karakterlik bir kod ve Bitz sürümüyle duyurur. Kod, Yakındaki Arkadaşlar her başladığında yenilenir. Bağlanan
+her yakın telefon (onda da Yakındaki Arkadaşlar açıktır) kedinin görünümünü (tüy, desen, gözler), giydiklerini
+ve büyüme aşamasını bu kodla birlikte alır. Bunlara kedinin adı, görünen adın ya da kedinin kalıcı kodu dahil
+değildir. Kedinin görünümü oturumdan oturuma aynı kalır; bu yüzden onu daha önce görmüş biri tanıyabilir.</li>
 <li><strong>Birini davet ettiğinde</strong> (ve onayladığında) yalnızca o oyuncu kedinin adını, görünen adını
-ve kedin için hep aynı kalan bir kodu alır; böylece kimin davet ettiğini görür ve seni arkadaş olarak
+ve Bitz'in kedin için oluşturduğu kalıcı bir kodu alır; böylece kimin davet ettiğini görür ve seni arkadaş olarak
 saklayabilir. <strong>Bir daveti kabul ettiğinde</strong> davet eden de senin için aynılarını alır. Herkesin
 kabul ettiği bir ziyarette, ziyaretteki kediler birbirlerinin adlarını görür.</li>
 <li><strong>Ziyaret sırasında:</strong> el sallama ve oyun gibi hareketler ziyaretteki kedilere gider.</li>
@@ -273,15 +284,18 @@ belirtir; yönlendirme ayrıntılarını (gönderen, alıcı ve konu gibi) kayde
 Cloudflare panelinde görebiliriz (Cloudflare, yönlendirme analizleri için bu süreyi 31 gün olarak belirtir).
 Yanıtlarımızı Gmail'de yazarız ve Brevo'nun e-posta gönderim hizmeti üzerinden gönderilir; bu nedenle Brevo
 yanıtı, e-posta adresini ve gönderim kayıtlarını işler. Brevo bu gönderim kayıtlarını bir ay saklar ve
-yanıtlarımızın kopyalarını saklamayacak şekilde ayarlanmıştır. Yanıtlarımızdaki bağlantılar şu anda hedeflerine
-ulaşmadan önce Brevo'nun yönlendirme hizmetinden (r.info.gibplay.com) geçer; bu nedenle Brevo bir tıklamanın IP
-adresini ve zamanını alır ve bir yanıtın açılıp açılmadığını da kaydedebilir. Brevo, takibe onay vermemiş
-kişilerin açma ve tıklamalarının bir kişi profiline bağlanmadığını belirtir; kimseden bu onayı istemiyoruz ve bunu
-pazarlama için kullanmayız.</li>
+yanıtlarımızın kopyalarını saklamayacak şekilde ayarlanmıştır. Brevo
+yanıtlarımıza açılma ve tıklama takibi ekler ve Brevo bu takibin hesabımız için kapatılamayacağını
+doğrulamıştır: yanıtlarımızdaki
+bağlantılar hedeflerine ulaşmadan önce Brevo'nun yönlendirme hizmetinden (r.info.gibplay.com) geçer; bu nedenle
+Brevo bir tıklamanın IP adresini ve zamanını alır ve bir yanıtın açıldığını kaydeder. Hesabımız, Brevo'nun bu
+olayları e-posta adresine bağlamadan kaydedeceği şekilde ayarlanmıştır. Kimseden bu takibe onay istemiyoruz ve
+bunu pazarlama ya da başka bir amaç için kullanmayız.</li>
 <li><strong>Ne kadar süre:</strong> destek yazışmalarını son mesajdan 12 ay sonra, Bildir e-postalarını ise
-bildirim sonuçlandıktan 6 ay sonra sileriz. Belirli bir mesaj açık bir sorun, uyuşmazlık veya hukuki talep için
-hâlâ gerekiyorsa yalnızca o mesajı ve yalnızca konu kapanana kadar saklarız. Mesajlarının daha önce silinmesini
-isteyebilirsin. Silme talepleri dahil verilerinle ilgili taleplere 30 gün içinde yanıt veririz; bu sebeplerden
+bildirim sonuçlandıktan 6 ay sonra sileriz. Destek ve Bildir e-postalarını posta kutumuzda etiketleriz ve ayda
+bir kez gözden geçirip bu sürelere ulaşan mesajları sileriz; bu nedenle bir mesaj yaklaşık bir ay daha uzun
+kalabilir. Belirli bir mesaj açık bir sorun, uyuşmazlık veya hukuki talep için hâlâ gerekiyorsa yalnızca o
+mesajı ve yalnızca konu kapanana kadar saklarız. Mesajlarının silinmesini istediğin zaman isteyebilirsin. Silme talepleri dahil verilerinle ilgili taleplere 30 gün içinde yanıt veririz; bu sebeplerden
 biriyle bir şeyi saklamamız gerekiyorsa neyi ve neden sakladığımızı bildiririz.</li>
 </ul>
 <h3 id="tr-hosting">Bu web sayfaları</h3>
@@ -308,12 +322,11 @@ toplarız: bize gönderdiğin e-posta aracılığıyla ve web sayfaları için b
 otomatik olarak.</p>
 <ul>
 <li><strong>Bitz ve satın alımların hakkındaki sorulara yanıt vermek</strong> (e-posta adresin, adın, mesajın ve
-eklerin): seninle aramızdaki Bitz lisans sözleşmesinin ifası için gerekli olması (KVKK m. 5/2-c). Son mesajdan 12
-ay sonrasına kadar saklanır.</li>
+eklerin): seninle aramızdaki Bitz lisans sözleşmesinin ifası için gerekli olması (KVKK m. 5/2-c). Saklama süresi: yukarıdaki <em>Ne kadar süre</em> maddesine bak.</li>
 <li><strong>Diğer mesajlara yanıt vermek ve Bildir e-postalarını incelemek</strong> (yukarıdakiler ve bildirimlerde
 bildirilen oyuncunun kedisinin adı ve görünen adı): temel hak ve özgürlüklerine zarar vermemek kaydıyla, bize
 yazanlara yanıt verme ve Yakındaki Arkadaşlar'ı güvenli tutma konusundaki meşru menfaatimiz (KVKK m. 5/2-f).
-Destek yazışmaları son mesajdan 12 ay, Bildir e-postaları bildirim sonuçlandıktan 6 ay sonrasına kadar saklanır.</li>
+Saklama süresi: yukarıdaki <em>Ne kadar süre</em> maddesine bak.</li>
 <li><strong>Bu web sayfalarını sunmak ve korumak</strong> (IP adresi, tarayıcı bilgileri, istenen sayfa, yüklenemeyen
 sayfa bildirimleri): çalışan ve güvenli bir web sitesi işletme konusundaki meşru menfaatimiz (KVKK m. 5/2-f).
 GitHub ve Cloudflare tarafından kendi saklama süreleriyle saklanır.</li>
