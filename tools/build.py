@@ -18,9 +18,9 @@ SITE = "https://gibplay.com"
 EMAIL = "info@gibplay.com"
 YEAR = "2026"
 RELEASE = json.loads((ROOT / "config/release.json").read_text())
-ASSET_VERSION = "8"
+ASSET_VERSION = "9"
 # The studio homepage has its own version, so homepage-only changes never touch the Bitz pages.
-STUDIO_ASSET_VERSION = "s2"
+STUDIO_ASSET_VERSION = "s3"
 
 PAGES = [
     {"src": "home.en.html", "out": "index.html", "path": "/", "lang": "en", "section": "home",
@@ -57,7 +57,6 @@ T = {
     "en": {
         "skip": "Skip to content", "home": "/", "bitz": "/Bitz/", "support": "/Bitz/support/", "privacy": "/Bitz/privacy/",
         "nav_label": "Main", "nav_bitz": "Bitz", "nav_support": "Support", "nav_privacy": "Privacy",
-        "switch_label": "Türkçe", "switch_lang": "tr", "switch_title": "Bu sayfayı Türkçe oku",
         "brand_label": "GibPlay Studios home",
         "footer_about": "An independent game studio making games for iPhone and iPad.",
         "footer_game": "Bitz", "footer_contact": "Contact", "footer_language": "Language",
@@ -68,7 +67,6 @@ T = {
     "tr": {
         "skip": "İçeriğe geç", "home": "/tr/", "bitz": "/Bitz/tr/", "support": "/Bitz/support/#tr", "privacy": "/Bitz/privacy/#tr",
         "nav_label": "Ana menü", "nav_bitz": "Bitz", "nav_support": "Destek", "nav_privacy": "Gizlilik",
-        "switch_label": "English", "switch_lang": "en", "switch_title": "Read this page in English",
         "brand_label": "GibPlay Studios ana sayfa",
         "footer_about": "iPhone ve iPad için oyunlar yapan bağımsız bir oyun stüdyosu.",
         "footer_game": "Bitz", "footer_contact": "İletişim", "footer_language": "Dil",
@@ -193,6 +191,7 @@ def head(page):
             "@context": "https://schema.org", "@type": "Organization", "name": "GibPlay Studios",
             "url": SITE + "/", "logo": SITE + "/assets/img/gibplay-logo-512.png", "email": EMAIL,
         }) + "</script>")
+    lines.append(f'<script src="/assets/js/header.js?v={ASSET_VERSION}"></script>')
     for script in page.get("scripts", []):
         if script == "stage":
             lines.append(f'<script src="/assets/bitz/art/stage.js?v={ASSET_VERSION}" defer></script>')
@@ -203,12 +202,23 @@ def head(page):
     return "\n".join(lines)
 
 
+GLOBE_ICON = ('<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" '
+              'stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/>'
+              '<path d="M3.5 9h17M3.5 15h17M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg>')
+MENU_ICON = ('<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" aria-hidden="true" focusable="false"><path class="i-open" d="M4 7h16M4 12h16M4 17h16"/>'
+             '<path class="i-close" d="M6 6l12 12M18 6 6 18"/></svg>')
+CHECK_ICON = ('<svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" '
+              'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+              '<path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>')
+
+
 def header(page):
+    """Brand, main navigation, the globe language menu and the compact-menu button.
+    Without JavaScript the links simply wrap and both languages stay visible as links;
+    assets/js/header.js turns the globe and the menu button into disclosures."""
     lang, t = page["lang"], T[page["lang"]]
     section = page["section"]
-    switch = page["alternates"].get(t["switch_lang"])
-    if page.get("bilingual"):
-        switch = "#tr"
 
     def link(key, label):
         current = ' aria-current="page"' if key == section else ""
@@ -220,10 +230,27 @@ def header(page):
         nav_items = "\n        ".join(f'<li><a href="{href}">{label}</a></li>' for href, label in items)
     else:
         nav_items = "\n        ".join([link('bitz', t['nav_bitz']), link('support', t['nav_support']), link('privacy', t['nav_privacy'])])
-    switch_html = ""
-    if switch:
-        switch_html = (f'<a class="lang-switch" href="{switch}" hreflang="{t["switch_lang"]}" lang="{t["switch_lang"]}" '
-                       f'title="{t["switch_title"]}">{t["switch_label"]}</a>')
+
+    lang_html = ""
+    if page["alternates"]:
+        # A bilingual page holds both languages: English from the top (#main), Turkish from #tr.
+        hrefs = ({"en": "#main", "tr": "#tr"} if page.get("bilingual")
+                 else {"en": page["alternates"]["en"], "tr": page["alternates"]["tr"]})
+        current = {code: ' aria-current="true"' if code == lang else "" for code in ("en", "tr")}
+        options = "\n          ".join(
+            f'<li><a href="{hrefs[code]}" hreflang="{code}" lang="{code}" data-lang="{code}"{current[code]}>'
+            f'<span>{name}</span>{CHECK_ICON}</a></li>'
+            for code, name in (("en", "English"), ("tr", "Türkçe")))
+        labels = {"en": "Language: English", "tr": "Dil: Türkçe"}
+        bilingual = " data-bilingual" if page.get("bilingual") else ""
+        lang_html = f"""<div class="lang-menu"{bilingual}>
+        <button class="icon-btn lang-btn" type="button" aria-expanded="false" aria-controls="lang-list"
+                aria-label="{labels[lang]}" data-label-en="{labels['en']}" data-label-tr="{labels['tr']}">{GLOBE_ICON}</button>
+        <ul class="lang-list" id="lang-list">
+          {options}
+        </ul>
+      </div>"""
+    menu_label = "Menu" if lang == "en" else "Menü"
     return f"""<a class="skip" href="#main">{t['skip']}</a>
 <header class="site-header">
   <div class="wrap header-row">
@@ -231,12 +258,15 @@ def header(page):
       <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
       <span class="brand-name">GibPlay <span>Studios</span></span>
     </a>
-    <nav class="site-nav" aria-label="{t['nav_label']}">
-      <ul>
+    <div class="header-tools">
+      <nav class="site-nav" id="site-nav" aria-label="{t['nav_label']}">
+        <ul>
         {nav_items}
-      </ul>
-      {switch_html}
-    </nav>
+        </ul>
+      </nav>
+      {lang_html}
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{menu_label}">{MENU_ICON}</button>
+    </div>
   </div>
 </header>"""
 
@@ -285,27 +315,39 @@ def footer(page):
 
 
 # Decorative hero artwork for the studio homepage: the logo's play shape, a warm
-# circle and a few small forms in the logo's pink, coral, peach and yellow.
-STUDIO_ART = """<svg class="hero-art" viewBox="0 0 520 480" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
-    <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
-    <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".16"/></pattern>
-  </defs>
-  <rect class="shape s-dots" x="350" y="300" width="126" height="108" fill="url(#g-dots)"/>
-  <g class="shape s-play"><path d="M120 92 L120 388 L392 240 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="56" stroke-linejoin="round"/></g>
-  <circle class="shape s-sun" cx="372" cy="318" r="84" fill="url(#g-sun)" opacity=".92"/>
-  <rect class="shape s-square" x="398" y="74" width="48" height="48" rx="12" fill="#f7c46a" transform="rotate(14 422 98)"/>
-  <circle class="shape s-dot" cx="78" cy="426" r="15" fill="#ef7ba5"/>
-  <circle class="shape s-ring" cx="456" cy="196" r="20" fill="none" stroke="#f2867f" stroke-width="7"/>
-  <g class="shape s-badge"><circle cx="214" cy="240" r="74" fill="#fffdfa"/><image href="/assets/img/gibplay-logo-160.png" x="166" y="192" width="96" height="96"/></g>
-</svg>"""
+# circle and a few small forms in the logo's pink, coral, peach and yellow, framing
+# real Bitz pixel art. All decorative (the same content is in the game card below).
+STUDIO_SHAPES = """<svg class="hero-shapes" viewBox="0 0 520 440" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
+      <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
+      <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".14"/></pattern>
+    </defs>
+    <rect class="shape s-dots" x="20" y="286" width="126" height="108" fill="url(#g-dots)"/>
+    <g class="shape s-play"><path d="M300 52 L300 268 L486 160 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="44" stroke-linejoin="round"/></g>
+    <circle class="shape s-sun" cx="92" cy="96" r="62" fill="url(#g-sun)" opacity=".9"/>
+    <rect class="shape s-square" x="440" y="352" width="40" height="40" rx="10" fill="#f7c46a" transform="rotate(14 460 372)"/>
+    <circle class="shape s-dot" cx="232" cy="414" r="12" fill="#ef7ba5"/>
+    <circle class="shape s-ring" cx="214" cy="26" r="16" fill="none" stroke="#f2867f" stroke-width="6"/>
+  </svg>"""
+
+
+def studio_art(lang):
+    first = "Our first game" if lang == "en" else "İlk oyunumuz"
+    return f"""<div class="hero-visual" aria-hidden="true">
+  {STUDIO_SHAPES}
+  <div class="shot shot-back"><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" alt=""></div>
+  <div class="shot shot-front"><img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt=""></div>
+  <div class="hero-chip"><img class="pixel" src="/assets/bitz/art/icon-192.png" width="48" height="48" alt=""><span><strong>Bitz</strong><small>{first}</small></span></div>
+  <img class="sprite sprite-heart pixel" src="/assets/bitz/art/heart.png" width="5" height="5" alt="">
+  <img class="sprite sprite-petal pixel" src="/assets/bitz/art/souvenir-cherryPetal.png" width="16" height="16" alt="">
+</div>"""
 
 
 def fill(text, page):
     lang = page["lang"]
     replacements = {
-        "{{studio_art}}": STUDIO_ART,
+        "{{studio_art}}": studio_art(lang),
         "{{release}}": release_block(lang),
         "{{release_short}}": release_short(lang),
         "{{release_compact}}": release_compact(lang),
