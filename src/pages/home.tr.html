@@ -5,9 +5,10 @@
       <h1 id="studio-heading" class="reveal reveal-2">Özenli oyunlar, <span class="accent">kendine özgü dünyalar.</span></h1>
       <p class="lede reveal reveal-3">iPhone ve iPad için, her biri kendi dünyası ve görünümü olan oyunlar yapıyoruz. İlk oyunumuz Bitz, telefonuna taşınan minik bir piksel kedi.</p>
       <div class="actions reveal reveal-4">
-        <a class="btn btn-primary" href="#games">Oyunlarımız <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#contact">Bize ulaş</a>
+        <a class="btn btn-primary" href="/Bitz/tr/">Bitz'le tanış <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#games">Oyunlarımız</a>
       </div>
+      <p class="hero-status reveal reveal-4"><span class="dot" aria-hidden="true"></span><span><strong>Bitz</strong> <span class="sep" aria-hidden="true">·</span> {{release_short}}</span></p>
     </div>
     {{studio_art}}
   </div>
@@ -25,7 +26,12 @@
 
     <article class="game-card" aria-labelledby="bitz-card-title">
       <a class="game-art" href="/Bitz/tr/" tabindex="-1" aria-hidden="true">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <img class="pixel game-scene" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <span class="theme-strip">
+          <img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" alt="" loading="lazy">
+        </span>
       </a>
       <div class="game-body">
         <span class="game-tag">İlk oyunumuz</span>
@@ -34,6 +40,12 @@
           <h3 id="bitz-card-title">Bitz</h3>
         </div>
         <p>iPhone, iPad ve ana ekranın için sevimli bir piksel kedi. Bitz'e bak, küçük oyunlar oyna, beş odayı süsle ve kedinin mevsimler boyunca büyüyüşünü izle. Reklam yok, hesap yok, takip yok.</p>
+        <ul class="game-features" aria-label="Öne çıkanlar">
+          <li>Bakım ve oyun</li>
+          <li>Süslenecek beş oda</li>
+          <li>Mevsimler</li>
+          <li>Ana ekran widget'ları</li>
+        </ul>
         {{release_compact}}
         <div class="actions">
           <a class="btn btn-primary" href="/Bitz/tr/">Bitz'i keşfet <span class="arrow" aria-hidden="true">→</span></a>

@@ -28,7 +28,8 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32 48x48">
 <link rel="icon" type="image/png" sizes="160x160" href="/assets/img/gibplay-logo-160.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/css/studio.css?v=s2">
+<link rel="stylesheet" href="/assets/css/studio.css?v=s3">
+<script src="/assets/js/header.js?v=9"></script>
 </head>
 <body class="theme-studio page-home">
 <!--email_off-->
@@ -39,14 +40,24 @@
       <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
       <span class="brand-name">GibPlay <span>Studios</span></span>
     </a>
-    <nav class="site-nav" aria-label="Ana menü">
-      <ul>
+    <div class="header-tools">
+      <nav class="site-nav" id="site-nav" aria-label="Ana menü">
+        <ul>
         <li><a href="#games">Oyunlar</a></li>
         <li><a href="#about">Hakkında</a></li>
         <li><a href="#contact">İletişim</a></li>
-      </ul>
-      <a class="lang-switch" href="/" hreflang="en" lang="en" title="Read this page in English">English</a>
-    </nav>
+        </ul>
+      </nav>
+      <div class="lang-menu">
+        <button class="icon-btn lang-btn" type="button" aria-expanded="false" aria-controls="lang-list"
+                aria-label="Dil: Türkçe" data-label-en="Language: English" data-label-tr="Dil: Türkçe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg></button>
+        <ul class="lang-list" id="lang-list">
+          <li><a href="/" hreflang="en" lang="en" data-lang="en"><span>English</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+          <li><a href="/tr/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true"><span>Türkçe</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+        </ul>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path class="i-open" d="M4 7h16M4 12h16M4 17h16"/><path class="i-close" d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
   </div>
 </header>
 <main id="main">
@@ -57,24 +68,31 @@
       <h1 id="studio-heading" class="reveal reveal-2">Özenli oyunlar, <span class="accent">kendine özgü dünyalar.</span></h1>
       <p class="lede reveal reveal-3">iPhone ve iPad için, her biri kendi dünyası ve görünümü olan oyunlar yapıyoruz. İlk oyunumuz Bitz, telefonuna taşınan minik bir piksel kedi.</p>
       <div class="actions reveal reveal-4">
-        <a class="btn btn-primary" href="#games">Oyunlarımız <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#contact">Bize ulaş</a>
+        <a class="btn btn-primary" href="/Bitz/tr/">Bitz'le tanış <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#games">Oyunlarımız</a>
       </div>
+      <p class="hero-status reveal reveal-4"><span class="dot" aria-hidden="true"></span><span><strong>Bitz</strong> <span class="sep" aria-hidden="true">·</span> Çok yakında App Store'da</span></p>
     </div>
-    <svg class="hero-art" viewBox="0 0 520 480" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
-    <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
-    <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".16"/></pattern>
-  </defs>
-  <rect class="shape s-dots" x="350" y="300" width="126" height="108" fill="url(#g-dots)"/>
-  <g class="shape s-play"><path d="M120 92 L120 388 L392 240 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="56" stroke-linejoin="round"/></g>
-  <circle class="shape s-sun" cx="372" cy="318" r="84" fill="url(#g-sun)" opacity=".92"/>
-  <rect class="shape s-square" x="398" y="74" width="48" height="48" rx="12" fill="#f7c46a" transform="rotate(14 422 98)"/>
-  <circle class="shape s-dot" cx="78" cy="426" r="15" fill="#ef7ba5"/>
-  <circle class="shape s-ring" cx="456" cy="196" r="20" fill="none" stroke="#f2867f" stroke-width="7"/>
-  <g class="shape s-badge"><circle cx="214" cy="240" r="74" fill="#fffdfa"/><image href="/assets/img/gibplay-logo-160.png" x="166" y="192" width="96" height="96"/></g>
-</svg>
+    <div class="hero-visual" aria-hidden="true">
+  <svg class="hero-shapes" viewBox="0 0 520 440" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
+      <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
+      <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".14"/></pattern>
+    </defs>
+    <rect class="shape s-dots" x="20" y="286" width="126" height="108" fill="url(#g-dots)"/>
+    <g class="shape s-play"><path d="M300 52 L300 268 L486 160 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="44" stroke-linejoin="round"/></g>
+    <circle class="shape s-sun" cx="92" cy="96" r="62" fill="url(#g-sun)" opacity=".9"/>
+    <rect class="shape s-square" x="440" y="352" width="40" height="40" rx="10" fill="#f7c46a" transform="rotate(14 460 372)"/>
+    <circle class="shape s-dot" cx="232" cy="414" r="12" fill="#ef7ba5"/>
+    <circle class="shape s-ring" cx="214" cy="26" r="16" fill="none" stroke="#f2867f" stroke-width="6"/>
+  </svg>
+  <div class="shot shot-back"><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" alt=""></div>
+  <div class="shot shot-front"><img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt=""></div>
+  <div class="hero-chip"><img class="pixel" src="/assets/bitz/art/icon-192.png" width="48" height="48" alt=""><span><strong>Bitz</strong><small>İlk oyunumuz</small></span></div>
+  <img class="sprite sprite-heart pixel" src="/assets/bitz/art/heart.png" width="5" height="5" alt="">
+  <img class="sprite sprite-petal pixel" src="/assets/bitz/art/souvenir-cherryPetal.png" width="16" height="16" alt="">
+</div>
   </div>
 </section>
 
@@ -90,7 +108,12 @@
 
     <article class="game-card" aria-labelledby="bitz-card-title">
       <a class="game-art" href="/Bitz/tr/" tabindex="-1" aria-hidden="true">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <img class="pixel game-scene" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <span class="theme-strip">
+          <img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" alt="" loading="lazy">
+        </span>
       </a>
       <div class="game-body">
         <span class="game-tag">İlk oyunumuz</span>
@@ -99,6 +122,12 @@
           <h3 id="bitz-card-title">Bitz</h3>
         </div>
         <p>iPhone, iPad ve ana ekranın için sevimli bir piksel kedi. Bitz'e bak, küçük oyunlar oyna, beş odayı süsle ve kedinin mevsimler boyunca büyüyüşünü izle. Reklam yok, hesap yok, takip yok.</p>
+        <ul class="game-features" aria-label="Öne çıkanlar">
+          <li>Bakım ve oyun</li>
+          <li>Süslenecek beş oda</li>
+          <li>Mevsimler</li>
+          <li>Ana ekran widget'ları</li>
+        </ul>
         <p class="game-status"><span class="dot" aria-hidden="true"></span>Çok yakında App Store'da</p><p class="game-status-note">iPhone ve iPad için, iOS 17 veya sonrası. Henüz indirilemiyor.</p>
         <div class="actions">
           <a class="btn btn-primary" href="/Bitz/tr/">Bitz'i keşfet <span class="arrow" aria-hidden="true">→</span></a>

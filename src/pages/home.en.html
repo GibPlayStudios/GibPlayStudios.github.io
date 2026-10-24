@@ -5,9 +5,10 @@
       <h1 id="studio-heading" class="reveal reveal-2">Thoughtful games, <span class="accent">distinctive worlds.</span></h1>
       <p class="lede reveal reveal-3">We make games for iPhone and iPad, each with a world and a look of its own. Our first game is Bitz, a tiny pixel cat who moves into your phone.</p>
       <div class="actions reveal reveal-4">
-        <a class="btn btn-primary" href="#games">See our games <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn btn-primary" href="/Bitz/">Meet Bitz <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#games">See our games</a>
       </div>
+      <p class="hero-status reveal reveal-4"><span class="dot" aria-hidden="true"></span><span><strong>Bitz</strong> <span class="sep" aria-hidden="true">·</span> {{release_short}}</span></p>
     </div>
     {{studio_art}}
   </div>
@@ -25,7 +26,12 @@
 
     <article class="game-card" aria-labelledby="bitz-card-title">
       <a class="game-art" href="/Bitz/" tabindex="-1" aria-hidden="true">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <img class="pixel game-scene" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <span class="theme-strip">
+          <img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" alt="" loading="lazy">
+        </span>
       </a>
       <div class="game-body">
         <span class="game-tag">Our first game</span>
@@ -34,6 +40,12 @@
           <h3 id="bitz-card-title">Bitz</h3>
         </div>
         <p>A cozy pixel cat for iPhone, iPad and your Home Screen. Care for Bitz, play little games, decorate five rooms and watch your cat grow up through the seasons. No ads, no accounts, no tracking.</p>
+        <ul class="game-features" aria-label="Highlights">
+          <li>Care and play</li>
+          <li>Five rooms to decorate</li>
+          <li>Seasons</li>
+          <li>Home Screen widgets</li>
+        </ul>
         {{release_compact}}
         <div class="actions">
           <a class="btn btn-primary" href="/Bitz/">Explore Bitz <span class="arrow" aria-hidden="true">→</span></a>
