@@ -3,11 +3,11 @@
   "sources": [
     {
       "file": "docs/site/support.html",
-      "sha256": "cd5e7738ce412936d06956646938147426527f825a0d3e9586c7de1351bdcf03"
+      "sha256": "d5150a3829c436b9cd2c7bd6268263748f2d8c9ef87d6fc393d12f0f0e079b19"
     },
     {
       "file": "docs/site/privacy.html",
-      "sha256": "0222d07698e6af513c981f4c4bac6572e11d66fdfcf031a9db4c1d12afdb843b"
+      "sha256": "955656c753f471ef5a99ba4f97771d0656b5d3ec1b3e8bdb5632470c4fe888bc"
     }
   ]
 }
