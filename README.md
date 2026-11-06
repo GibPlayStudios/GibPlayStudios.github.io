@@ -55,7 +55,7 @@ page stays visible until the preview has drawn its first scene, and returns if i
 
 ## Release button
 
-`config/release.json` holds Bitz's App Store status. See [docs/RELEASE_BUTTON.md](docs/RELEASE_BUTTON.md).
+`config/release.json` holds Bitz's App Store listing and requirements. See [docs/RELEASE_BUTTON.md](docs/RELEASE_BUTTON.md).
 
 ## Art
 

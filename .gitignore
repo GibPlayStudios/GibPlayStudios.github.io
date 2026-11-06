@@ -1,0 +1,6 @@
+.DS_Store
+.build/
+.swiftpm/
+tools/bitz-art/Package.resolved
+# Local folders prepared for manual GitHub web uploads; never commit them.
+upload-*/

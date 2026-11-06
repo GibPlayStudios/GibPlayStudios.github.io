@@ -1,11 +1,13 @@
 {
   "_comment": "Bitz release state for gibplay.com. Edit, then run: python3 tools/build.py. See docs/RELEASE_BUTTON.md.",
-  "status": "coming-soon",
+  "status": "available",
   "appStoreId": "6824056606",
-  "appStoreUrl": "https://apps.apple.com/app/id6824056606",
+  "appStoreUrl": "https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606",
+  "appStoreUrlTr": "https://apps.apple.com/tr/app/bitz-piksel-kedi/id6824056606?l=tr",
   "devices": "iPhone and iPad",
   "devicesTr": "iPhone ve iPad",
-  "minimumOS": "iOS 17",
-  "verifiedOn": "2026-10-18",
-  "verifiedHow": "iTunes lookup API (bundle com.berkayilmaz.bitz and id 6824056606) returned no results; apps.apple.com/app/id6824056606 returned 404."
+  "minimumOS": "iOS or iPadOS 17",
+  "minimumOSTr": "iOS veya iPadOS 17",
+  "verifiedOn": "2026-11-06",
+  "verifiedHow": "iTunes lookup (id 6824056606, US and TR) returned Bitz: Pixel Cat, version 1.0, price 0, bundle com.berkayilmaz.bitz. The US and TR product pages load, say Free and In-App Purchases, and require iOS 17.0 (iPhone) and iPadOS 17.0 (iPad)."
 }

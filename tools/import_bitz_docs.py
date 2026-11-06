@@ -65,8 +65,14 @@ ANCHORS = {
     "Yakındaki Arkadaşlar (isteğe bağlı, varsayılan olarak kapalı)": "nearby",
     "What do I get when I buy a pack?": "packs", "Bir paket alınca ne alırım?": "packs",
     "Why can't I see a pack in the Shop?": "seasonal", "Bir paketi Dükkân'da neden göremiyorum?": "seasonal",
+    "Support email and these web pages": "web", "Destek e-postası ve bu web sayfaları": "web",
+    "Support email": "email", "Destek e-postası": "email",
+    "These web pages": "hosting", "Bu web sayfaları": "hosting",
+    "Providers and countries": "recipients", "Sağlayıcılar ve ülkeler": "recipients",
+    "Charging Room and StandBy": "charging", "Şarj Odası ve StandBy": "charging",
+    "Purposes, legal bases and retention": "basis", "Amaçlar, hukuki sebepler ve saklama süreleri": "basis",
 }
-TOC_LABELS = {"Purchases (Apple)": "Purchases (Apple)", "Information Apple shares with developers": "Information Apple shares",
+TOC_LABELS = {"Purchases (Apple)": "Purchases (Apple)", "Support email and these web pages": "Support email and web pages", "Information Apple shares with developers": "Information Apple shares",
               "Does Restore Purchases bring back my cat?": "Your cat's save", "How do I restore packs I bought?": "Restoring packs",
               "Refunds and payment problems": "Refunds"}
 
@@ -90,8 +96,7 @@ def convert(part, lang, page):
     # Links: the old site's relative pages become gibplay.com routes.
     home = "/Bitz/" if lang == "en" else "/Bitz/tr/"
     part = part.replace('href="index.html"', f'href="{home}"')
-    part = part.replace('href="support.html#tr"', 'href="/Bitz/support/#tr"').replace('href="support.html"', 'href="/Bitz/support/"')
-    part = part.replace('href="privacy.html#tr"', 'href="/Bitz/privacy/#tr"').replace('href="privacy.html"', 'href="/Bitz/privacy/"')
+    part = re.sub(r'href="(support|privacy)\.html(#[^"]*)?"', lambda m: f'href="/Bitz/{m.group(1)}/{m.group(2) or ""}"', part)
     if re.search(r'href="(?!https?:|mailto:|/|#)', part):
         raise SystemExit(f"{page}: unexpected relative link left: " + re.search(r'href="(?!https?:|mailto:|/|#)[^"]*"', part).group(0))
 
@@ -112,13 +117,14 @@ def convert(part, lang, page):
     if page == "support":
         part = part.replace('<div class="callout">', f'<div class="callout" id="{prefix}contact">', 1)
         toc.insert(0, (prefix + "contact", "Contact" if lang == "en" else "İletişim"))
-        # The site's extra section goes after Widgets.
-        marker = f'<h2 id="{prefix}nearby">'
-        if marker not in part:
-            raise SystemExit("support: Nearby Friends heading not found; cannot place the Charging Room section")
-        part = part.replace(marker, CHARGING[lang] + "\n" + marker)
-        toc.insert([t[0] for t in toc].index(prefix + "nearby"),
-                   (prefix + "charging", "Charging Room and StandBy" if lang == "en" else "Şarj Odası ve StandBy"))
+        # The site's extra section goes after Widgets, unless the Bitz source already has it.
+        if f'<h2 id="{prefix}charging">' not in part:
+            marker = f'<h2 id="{prefix}nearby">'
+            if marker not in part:
+                raise SystemExit("support: Nearby Friends heading not found; cannot place the Charging Room section")
+            part = part.replace(marker, CHARGING[lang] + "\n" + marker)
+            toc.insert([t[0] for t in toc].index(prefix + "nearby"),
+                       (prefix + "charging", "Charging Room and StandBy" if lang == "en" else "Şarj Odası ve StandBy"))
     if page == "privacy":
         part = part.replace('<div class="callout">', f'<div class="callout" id="{prefix}short">', 1)
         toc.insert(0, (prefix + "short", "In short" if lang == "en" else "Kısaca"))

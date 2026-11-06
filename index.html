@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>GibPlay Studios: thoughtful games, distinctive worlds</title>
-<meta name="description" content="GibPlay Studios is an independent game studio making games for iPhone and iPad. Our first game is Bitz.">
+<meta name="description" content="GibPlay Studios is an independent game studio making games for iPhone and iPad. Our first released game, Bitz, is now on the App Store.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#fdfbf8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#fdfbf8" media="(prefers-color-scheme: dark)">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GibPlay Studios">
 <meta property="og:title" content="GibPlay Studios: thoughtful games, distinctive worlds">
-<meta property="og:description" content="GibPlay Studios is an independent game studio making games for iPhone and iPad. Our first game is Bitz.">
+<meta property="og:description" content="GibPlay Studios is an independent game studio making games for iPhone and iPad. Our first released game, Bitz, is now on the App Store.">
 <meta property="og:url" content="https://gibplay.com/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gibplay.com/assets/bitz/art/og-bitz.png">
@@ -28,8 +28,9 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32 48x48">
 <link rel="icon" type="image/png" sizes="160x160" href="/assets/img/gibplay-logo-160.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/css/studio.css?v=s2">
+<link rel="stylesheet" href="/assets/css/studio.css?v=s4">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "GibPlay Studios", "url": "https://gibplay.com/", "logo": "https://gibplay.com/assets/img/gibplay-logo-512.png", "email": "info@gibplay.com"}</script>
+<script src="/assets/js/header.js?v=10"></script>
 </head>
 <body class="theme-studio page-home">
 <!--email_off-->
@@ -40,14 +41,24 @@
       <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
       <span class="brand-name">GibPlay <span>Studios</span></span>
     </a>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
+    <div class="header-tools">
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
         <li><a href="#games">Games</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a class="lang-switch" href="/tr/" hreflang="tr" lang="tr" title="Bu sayfayı Türkçe oku">Türkçe</a>
-    </nav>
+        </ul>
+      </nav>
+      <div class="lang-menu">
+        <button class="icon-btn lang-btn" type="button" aria-expanded="false" aria-controls="lang-list"
+                aria-label="Language: English" data-label-en="Language: English" data-label-tr="Dil: Türkçe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg></button>
+        <ul class="lang-list" id="lang-list">
+          <li><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true"><span>English</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+          <li><a href="/tr/" hreflang="tr" lang="tr" data-lang="tr"><span>Türkçe</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+        </ul>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path class="i-open" d="M4 7h16M4 12h16M4 17h16"/><path class="i-close" d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
   </div>
 </header>
 <main id="main">
@@ -56,26 +67,33 @@
     <div>
       <p class="kicker reveal"><span class="mark" aria-hidden="true"></span>GibPlay Studios · Independent game studio</p>
       <h1 id="studio-heading" class="reveal reveal-2">Thoughtful games, <span class="accent">distinctive worlds.</span></h1>
-      <p class="lede reveal reveal-3">We make games for iPhone and iPad, each with a world and a look of its own. Our first game is Bitz, a tiny pixel cat who moves into your phone.</p>
+      <p class="lede reveal reveal-3">We make games for iPhone and iPad, each with a world and a look of its own. Our first released game is Bitz, a tiny pixel cat who moves into your phone.</p>
       <div class="actions reveal reveal-4">
-        <a class="btn btn-primary" href="#games">See our games <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn btn-primary" href="/Bitz/">Meet Bitz <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#games">See our games</a>
       </div>
+      <p class="hero-status reveal reveal-4"><span class="dot" aria-hidden="true"></span><span><strong>Bitz</strong> <span class="sep" aria-hidden="true">·</span> <a href="https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606">Available on the App Store</a></span></p>
     </div>
-    <svg class="hero-art" viewBox="0 0 520 480" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
-    <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
-    <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".16"/></pattern>
-  </defs>
-  <rect class="shape s-dots" x="350" y="300" width="126" height="108" fill="url(#g-dots)"/>
-  <g class="shape s-play"><path d="M120 92 L120 388 L392 240 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="56" stroke-linejoin="round"/></g>
-  <circle class="shape s-sun" cx="372" cy="318" r="84" fill="url(#g-sun)" opacity=".92"/>
-  <rect class="shape s-square" x="398" y="74" width="48" height="48" rx="12" fill="#f7c46a" transform="rotate(14 422 98)"/>
-  <circle class="shape s-dot" cx="78" cy="426" r="15" fill="#ef7ba5"/>
-  <circle class="shape s-ring" cx="456" cy="196" r="20" fill="none" stroke="#f2867f" stroke-width="7"/>
-  <g class="shape s-badge"><circle cx="214" cy="240" r="74" fill="#fffdfa"/><image href="/assets/img/gibplay-logo-160.png" x="166" y="192" width="96" height="96"/></g>
-</svg>
+    <div class="hero-visual" aria-hidden="true">
+  <svg class="hero-shapes" viewBox="0 0 520 440" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-play" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef7ba5"/><stop offset="1" stop-color="#f2867f"/></linearGradient>
+      <linearGradient id="g-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a57a"/><stop offset="1" stop-color="#f7c46a"/></linearGradient>
+      <pattern id="g-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2a2523" opacity=".14"/></pattern>
+    </defs>
+    <rect class="shape s-dots" x="20" y="286" width="126" height="108" fill="url(#g-dots)"/>
+    <g class="shape s-play"><path d="M300 52 L300 268 L486 160 Z" fill="url(#g-play)" stroke="url(#g-play)" stroke-width="44" stroke-linejoin="round"/></g>
+    <circle class="shape s-sun" cx="92" cy="96" r="62" fill="url(#g-sun)" opacity=".9"/>
+    <rect class="shape s-square" x="440" y="352" width="40" height="40" rx="10" fill="#f7c46a" transform="rotate(14 460 372)"/>
+    <circle class="shape s-dot" cx="232" cy="414" r="12" fill="#ef7ba5"/>
+    <circle class="shape s-ring" cx="214" cy="26" r="16" fill="none" stroke="#f2867f" stroke-width="6"/>
+  </svg>
+  <div class="shot shot-back"><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" alt=""></div>
+  <div class="shot shot-front"><img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt=""></div>
+  <div class="hero-chip"><img class="pixel" src="/assets/bitz/art/icon-192.png" width="48" height="48" alt=""><span><strong>Bitz</strong><small>Our first released game</small></span></div>
+  <img class="sprite sprite-heart pixel" src="/assets/bitz/art/heart.png" width="5" height="5" alt="">
+  <img class="sprite sprite-petal pixel" src="/assets/bitz/art/souvenir-cherryPetal.png" width="16" height="16" alt="">
+</div>
   </div>
 </section>
 
@@ -84,23 +102,34 @@
     <div class="section-head">
       <div>
         <p class="label">Games</p>
-        <h2 id="games-heading">Our first game</h2>
+        <h2 id="games-heading">Our first released game</h2>
       </div>
       <p>Every game we make gets its own world and its own look. This is where you'll find them.</p>
     </div>
 
     <article class="game-card" aria-labelledby="bitz-card-title">
       <a class="game-art" href="/Bitz/" tabindex="-1" aria-hidden="true">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <img class="pixel game-scene" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <span class="theme-strip">
+          <img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" alt="" loading="lazy">
+        </span>
       </a>
       <div class="game-body">
-        <span class="game-tag">Our first game</span>
+        <span class="game-tag">Out now</span>
         <div class="game-title">
           <img class="pixel" src="/assets/bitz/art/icon-192.png" width="56" height="56" alt="">
           <h3 id="bitz-card-title">Bitz</h3>
         </div>
         <p>A cozy pixel cat for iPhone, iPad and your Home Screen. Care for Bitz, play little games, decorate five rooms and watch your cat grow up through the seasons. No ads, no accounts, no tracking.</p>
-        <p class="game-status"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</p><p class="game-status-note">For iPhone and iPad, iOS 17 or later. Not available to download yet.</p>
+        <ul class="game-features" aria-label="Highlights">
+          <li>Care and play</li>
+          <li>Five rooms to decorate</li>
+          <li>Seasons</li>
+          <li>Home Screen widgets</li>
+        </ul>
+        <a class="store-badge" href="https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606"><img src="/assets/img/app-store-badge-en.svg" alt="Download on the App Store" width="120" height="40"></a><p class="game-status-note">Free to download, with optional in-app purchases. For iPhone and iPad with iOS or iPadOS 17 or later.</p>
         <div class="actions">
           <a class="btn btn-primary" href="/Bitz/">Explore Bitz <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn" href="/Bitz/#demo">Try the interactive preview</a>
@@ -111,7 +140,7 @@
     <div class="more">
       <svg class="more-icon" viewBox="0 0 44 44" aria-hidden="true" focusable="false"><path d="M12 9 L12 35 L34 22 Z" fill="none" stroke="#f2867f" stroke-width="3" stroke-linejoin="round" stroke-dasharray="5 4"/><circle cx="34" cy="34" r="7" fill="#f7c46a"/><path d="M34 30.5 V37.5 M30.5 34 H37.5" stroke="#221e1d" stroke-width="1.8" stroke-linecap="round"/></svg>
       <h3>More games to come</h3>
-      <p>Bitz is our first game, and we hope it's the first of many. We'll share new games here when they're ready to show.</p>
+      <p>Bitz is our first released game, and we hope it's the first of many. We'll share new games here when they're ready to show.</p>
     </div>
   </div>
 </section>
@@ -160,6 +189,7 @@
       <h2 class="footer-title">Bitz</h2>
       <ul class="footer-links">
         <li><a href="/Bitz/">Bitz, the pixel cat</a></li>
+        <li><a href="https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606">Download on the App Store</a></li>
         <li><a href="/Bitz/support/">Support</a></li>
         <li><a href="/Bitz/privacy/">Privacy policy</a></li>
       </ul>
@@ -180,7 +210,7 @@
     </div>
   </div>
   <div class="wrap footer-legal">
-    <p>© 2026 GibPlay Studios. iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+    <p>© 2026 GibPlay Studios. Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</p>
   </div>
 </footer>
 <!--/email_off-->

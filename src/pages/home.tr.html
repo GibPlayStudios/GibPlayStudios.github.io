@@ -3,11 +3,12 @@
     <div>
       <p class="kicker reveal"><span class="mark" aria-hidden="true"></span>GibPlay Studios · Bağımsız oyun stüdyosu</p>
       <h1 id="studio-heading" class="reveal reveal-2">Özenli oyunlar, <span class="accent">kendine özgü dünyalar.</span></h1>
-      <p class="lede reveal reveal-3">iPhone ve iPad için, her biri kendi dünyası ve görünümü olan oyunlar yapıyoruz. İlk oyunumuz Bitz, telefonuna taşınan minik bir piksel kedi.</p>
+      <p class="lede reveal reveal-3">iPhone ve iPad için, her biri kendi dünyası ve görünümü olan oyunlar yapıyoruz. Yayımlanan ilk oyunumuz Bitz, telefonuna taşınan minik bir piksel kedi.</p>
       <div class="actions reveal reveal-4">
-        <a class="btn btn-primary" href="#games">Oyunlarımız <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#contact">Bize ulaş</a>
+        <a class="btn btn-primary" href="/Bitz/tr/">Bitz'le tanış <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#games">Oyunlarımız</a>
       </div>
+      <p class="hero-status reveal reveal-4"><span class="dot" aria-hidden="true"></span><span><strong>Bitz</strong> <span class="sep" aria-hidden="true">·</span> {{release_short}}</span></p>
     </div>
     {{studio_art}}
   </div>
@@ -18,22 +19,33 @@
     <div class="section-head">
       <div>
         <p class="label">Oyunlar</p>
-        <h2 id="games-heading">İlk oyunumuz</h2>
+        <h2 id="games-heading">Yayımlanan ilk oyunumuz</h2>
       </div>
       <p>Yaptığımız her oyunun kendine ait bir dünyası ve görünümü var. Hepsini burada bulacaksın.</p>
     </div>
 
     <article class="game-card" aria-labelledby="bitz-card-title">
       <a class="game-art" href="/Bitz/tr/" tabindex="-1" aria-hidden="true">
-        <img class="pixel" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <img class="pixel game-scene" src="/assets/bitz/art/scene-autumn-day.png" width="160" height="112" alt="">
+        <span class="theme-strip">
+          <img class="pixel" src="/assets/bitz/art/theme-autumnCabin.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-moonPond.png" width="160" height="112" alt="" loading="lazy">
+          <img class="pixel" src="/assets/bitz/art/theme-northernLights.png" width="160" height="112" alt="" loading="lazy">
+        </span>
       </a>
       <div class="game-body">
-        <span class="game-tag">İlk oyunumuz</span>
+        <span class="game-tag">Yayında</span>
         <div class="game-title">
           <img class="pixel" src="/assets/bitz/art/icon-192.png" width="56" height="56" alt="">
           <h3 id="bitz-card-title">Bitz</h3>
         </div>
         <p>iPhone, iPad ve ana ekranın için sevimli bir piksel kedi. Bitz'e bak, küçük oyunlar oyna, beş odayı süsle ve kedinin mevsimler boyunca büyüyüşünü izle. Reklam yok, hesap yok, takip yok.</p>
+        <ul class="game-features" aria-label="Öne çıkanlar">
+          <li>Bakım ve oyun</li>
+          <li>Süslenecek beş oda</li>
+          <li>Mevsimler</li>
+          <li>Ana ekran widget'ları</li>
+        </ul>
         {{release_compact}}
         <div class="actions">
           <a class="btn btn-primary" href="/Bitz/tr/">Bitz'i keşfet <span class="arrow" aria-hidden="true">→</span></a>
@@ -45,7 +57,7 @@
     <div class="more">
       <svg class="more-icon" viewBox="0 0 44 44" aria-hidden="true" focusable="false"><path d="M12 9 L12 35 L34 22 Z" fill="none" stroke="#f2867f" stroke-width="3" stroke-linejoin="round" stroke-dasharray="5 4"/><circle cx="34" cy="34" r="7" fill="#f7c46a"/><path d="M34 30.5 V37.5 M30.5 34 H37.5" stroke="#221e1d" stroke-width="1.8" stroke-linecap="round"/></svg>
       <h3>Yeni oyunlar gelecek</h3>
-      <p>Bitz ilk oyunumuz ve ardından başkalarının da gelmesini umuyoruz. Yeni oyunları göstermeye hazır olduklarında burada paylaşacağız.</p>
+      <p>Bitz yayımlanan ilk oyunumuz ve ardından başkalarının da gelmesini umuyoruz. Yeni oyunları göstermeye hazır olduklarında burada paylaşacağız.</p>
     </div>
   </div>
 </section>

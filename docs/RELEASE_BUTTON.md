@@ -1,38 +1,42 @@
-# Bitz release button
+# Bitz release state
 
-`config/release.json` decides what the site says about availability.
+Bitz is on the App Store. `config/release.json` holds what the site says about it.
 
 ```json
 {
-  "status": "coming-soon",
+  "status": "available",
   "appStoreId": "6824056606",
-  "appStoreUrl": "https://apps.apple.com/app/id6824056606",
+  "appStoreUrl": "https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606",
+  "appStoreUrlTr": "https://apps.apple.com/tr/app/bitz-piksel-kedi/id6824056606?l=tr",
   "devices": "iPhone and iPad",
   "devicesTr": "iPhone ve iPad",
-  "minimumOS": "iOS 17"
+  "minimumOS": "iOS or iPadOS 17",
+  "minimumOSTr": "iOS veya iPadOS 17"
 }
 ```
 
-- `coming-soon` (now): every Bitz call to action says "Coming soon to the App Store" / "Çok yakında App
-  Store'da", for iPhone and iPad, iOS 17 or later, with no download link. Nothing links to `#`.
-- `available`: the official badge links to `appStoreUrl` on `/`, `/tr/`, `/Bitz/` and `/Bitz/tr/`.
+- English pages link to the US listing and Turkish pages to the Turkish listing. `?l=tr` shows the listing's Turkish
+  text in a web browser; without it the Turkish storefront's web page is in English. Neither URL redirects or carries
+  tracking parameters.
+- `tools/build.py` puts the badge on `/`, `/tr/`, `/Bitz/` and `/Bitz/tr/` (hero and end of page on the Bitz pages), a
+  text link in the studio hero, and an App Store link in every footer. It refuses any status other than `available`
+  and stops if a badge file is missing.
+- If the minimum OS or the devices change, compare them with the public listing, then edit this file and rebuild.
 
-## Switching to `available`
+## Badges
 
-1. Confirm Bitz is publicly on the App Store: `https://apps.apple.com/app/id6824056606` loads the product page,
-   and `https://itunes.apple.com/lookup?id=6824056606` returns one result. (On 2026-10-18 the page returned 404
-   and the lookup returned no results.)
-2. Download Apple's official "Download on the App Store" badges (black, English and Turkish) from Apple's
-   marketing resources (https://developer.apple.com/app-store/marketing/guidelines/ links to them). Save them
-   unmodified as `assets/img/app-store-badge-en.svg` and `assets/img/app-store-badge-tr.svg`. Follow Apple's
-   guidelines: don't recolour, crop or animate the badge, keep clear space around it, and keep it at least as
-   prominent as any other call to action. Note Apple's legal line if required ("App Store is a service mark of
-   Apple Inc.").
-3. Set `"status": "available"` (and the final `appStoreUrl` if Apple's URL differs, for example with the app
-   name slug), then run `python3 tools/build.py`. The build refuses to publish `available` without both badge
-   files.
-4. Review the purchase wording on `/Bitz/` ("Bitz will be free to download") and change it to present tense if
-   the price is still Free.
-5. Commit, push, and check the live pages.
+`assets/img/app-store-badge-en.svg` and `assets/img/app-store-badge-tr.svg` are Apple's black "Download on the App
+Store" badges, unmodified, from Apple's marketing tools (linked from
+https://developer.apple.com/app-store/marketing/guidelines/):
 
-No structured data claims availability, ratings or prices; keep it that way.
+- `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us`
+- `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/tr-tr`
+
+Apple's rules used here: the badge is at least 40px high on screen (the site uses 48px), with clear space of a quarter
+of its height (12px). Don't recolour, crop, animate or translate it. Every footer carries Apple's credit line.
+
+## What the site doesn't claim
+
+No page or structured data states a price in currency, a rating or a download count; keep it that way. The site says
+"free to download, with optional in-app purchases". The listing also shows Mac and Apple Vision compatibility
+("Designed for iPad. Not verified for macOS."), but the site only names iPhone and iPad.

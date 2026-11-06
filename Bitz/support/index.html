@@ -25,7 +25,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/bitz/art/icon-64.png">
 <link rel="apple-touch-icon" href="/assets/bitz/art/icon-192.png">
-<link rel="stylesheet" href="/assets/css/site.css?v=8">
+<link rel="stylesheet" href="/assets/css/site.css?v=10">
+<script src="/assets/js/header.js?v=10"></script>
 </head>
 <body class="theme-bitz page-support">
 <!--email_off-->
@@ -36,18 +37,28 @@
       <img src="/assets/img/gibplay-logo-160.png" alt="" width="40" height="40">
       <span class="brand-name">GibPlay <span>Studios</span></span>
     </a>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
+    <div class="header-tools">
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
         <li><a href="/Bitz/">Bitz</a></li>
         <li><a href="/Bitz/support/" aria-current="page">Support</a></li>
         <li><a href="/Bitz/privacy/">Privacy</a></li>
-      </ul>
-      <a class="lang-switch" href="#tr" hreflang="tr" lang="tr" title="Bu sayfayı Türkçe oku">Türkçe</a>
-    </nav>
+        </ul>
+      </nav>
+      <div class="lang-menu" data-bilingual>
+        <button class="icon-btn lang-btn" type="button" aria-expanded="false" aria-controls="lang-list"
+                aria-label="Language: English" data-label-en="Language: English" data-label-tr="Dil: Türkçe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg></button>
+        <ul class="lang-list" id="lang-list">
+          <li><a href="#main" hreflang="en" lang="en" data-lang="en" aria-current="true"><span>English</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+          <li><a href="#tr" hreflang="tr" lang="tr" data-lang="tr"><span>Türkçe</span><svg class="check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></a></li>
+        </ul>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path class="i-open" d="M4 7h16M4 12h16M4 17h16"/><path class="i-close" d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
   </div>
 </header>
 <main id="main">
-<!-- Imported from Bitz docs/site/support.html (sha256 55cc49eec015effd) by tools/import_bitz_docs.py. Edit the
+<!-- Imported from Bitz docs/site/support.html (sha256 d5150a3829c436b9) by tools/import_bitz_docs.py. Edit the
      wording in the Bitz repository and re-import; only the layout lives here. -->
 <section class="doc-hero" aria-labelledby="support-heading">
   <div class="wrap">
@@ -77,8 +88,8 @@
 
   <article class="prose" aria-labelledby="support-heading">
 <div class="callout" id="contact"><p><strong>Contact:</strong> questions, problems or feedback: email
-<a href="mailto:info@gibplay.com">info@gibplay.com</a>. Bitz is made by Berkay Yilmaz under the studio name
-Gibplay Game Studio. Please don't send passwords or payment details.</p></div>
+<a href="mailto:info@gibplay.com">info@gibplay.com</a>. Please don't send passwords or payment details. How we handle support email (Cloudflare,
+Gmail, Brevo) is explained in the <a href="/Bitz/privacy/#email">privacy policy</a>.</p></div>
 
 <h2 id="purchases">Purchases</h2>
 <h3 id="packs">What do I get when I buy a pack?</h3>
@@ -91,10 +102,12 @@ are never put on automatically.</p>
 every year. Packs you own are always yours, in every season. The season follows your device's date and
 Settings › Seasons (Northern/Southern).</p>
 <h3 id="restore">How do I restore packs I bought?</h3>
-<p>Packs belong to the Apple Account you bought them with. Use Restore Purchases, signed in with that
-account: on the first screen when you start Bitz on a new device or after reinstalling, in the Shop, or in
-Settings › Purchases. Out-of-season packs are restored too. Restoring never changes your rooms or outfits.</p>
-<h3 id="save">Does Restore Purchases bring back my cat?</h3>
+<p>Packs belong to the Apple Account you bought them with. Bitz recognizes them automatically when it opens
+or comes back to the screen, whenever the App Store makes them available on your device, including on a new
+device or after reinstalling. Settings › Purchases shows how many packs are verified on your device. If a pack
+is missing, use Restore Previous Purchases there, signed in with that account. Out-of-season packs are restored
+too. Restoring never changes your rooms or outfits.</p>
+<h3 id="does-restoring-purchases-bring-back-my-cat">Does restoring purchases bring back my cat?</h3>
 <p>No. It restores purchases only. Your cat, stars and progress are saved on your device. To move them,
 export a backup in Settings › About &amp; Support › Manage data, and restore it on the new device from the
 first setup screen or from Manage data; a device backup that includes app data also works. Deleting Bitz (and
@@ -102,7 +115,7 @@ its widgets) deletes your cat from the device, so back up first: without a backu
 <h3 id="refunds">Refunds and payment problems</h3>
 <p>Purchases are made through Apple, which handles payments, refunds and cancellations:
 <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Your rights under consumer law are not
-affected. If a pack doesn't unlock, try Restore Purchases first, then email us.</p>
+affected. If a pack doesn't unlock, try Restore Previous Purchases first, then email us.</p>
 
 <h2 id="health">Health and steps</h2>
 <p>Connecting Apple Health is optional. Bitz only reads today's step count to celebrate your walking goal;
@@ -126,23 +139,24 @@ open it at all.</p>
 
 <h2 id="nearby">Nearby Friends</h2>
 <p>Visits need two devices with Bitz near each other, both with Nearby Friends turned on and the app open.
-Bitz asks for Local Network access the first time you turn it on. Nearby players see only your cat's look
-until you invite them or accept their invitation; then that player sees your cat's name and your display
-name, so a nickname is best. To stop someone, choose <em>Block</em> on their cat or their invitation in the
+Bitz asks for Local Network access the first time you turn it on. Until you invite someone or accept their invitation, nearby players receive only your cat's look under a code
+that changes each session; then that player also receives your cat's name, your display name and your cat's
+permanent code, so a nickname is best. To stop someone, choose <em>Block</em> on their cat or their invitation in the
 Friends tab: blocked cats are hidden and their invitations declined (unblock in Friends). <em>Report</em>
 opens an email to us with their names, which you can edit before sending.</p>
 
 <h2 id="data">Your data</h2>
-<p>Everything Bitz saves stays on your device; deleting the app (with its widgets) removes it. Backups you
-exported and other players' copies of your cat's public card are not removed. See the
+<p>Everything Bitz saves is kept on your device and is not sent to us; deleting the app (with its widgets)
+removes it. Backups you exported, your own device backups and other players' copies of your cat's card are not
+removed. See the
 <a href="/Bitz/privacy/">privacy policy</a>.</p>
 
     <section class="section-lang" id="tr" lang="tr" aria-labelledby="support-tr-heading">
       <h1 id="support-tr-heading">Destek</h1>
       <nav class="lang-nav" aria-label="Sayfalar"><a href="/Bitz/tr/">Bitz</a><a href="/Bitz/privacy/#tr">Gizlilik</a><a href="#main" hreflang="en" lang="en">English</a></nav>
 <div class="callout" id="tr-contact"><p><strong>İletişim:</strong> sorular, sorunlar ya da geri bildirim için
-<a href="mailto:info@gibplay.com">info@gibplay.com</a> adresine e-posta gönder. Bitz, Berkay Yilmaz tarafından
-Gibplay Game Studio stüdyo adıyla yapılır. Lütfen parola ya da ödeme bilgisi gönderme.</p></div>
+<a href="mailto:info@gibplay.com">info@gibplay.com</a> adresine e-posta gönder. Lütfen parola ya da ödeme bilgisi gönderme. Destek e-postalarını nasıl
+işlediğimiz (Cloudflare, Gmail, Brevo) <a href="/Bitz/privacy/#tr-email">gizlilik politikasında</a> açıklanır.</p></div>
 
 <h2 id="tr-purchases">Satın alımlar</h2>
 <h3 id="tr-packs">Bir paket alınca ne alırım?</h3>
@@ -155,10 +169,11 @@ bir kez uygulanır; kıyafetler asla kendiliğinden giydirilmez.</p>
 Sahip olduğun paketler her mevsimde senindir. Mevsim, cihazının tarihine ve Ayarlar › Mevsimler
 (Kuzey/Güney) seçimine göre belirlenir.</p>
 <h3 id="tr-restore">Aldığım paketleri nasıl geri yüklerim?</h3>
-<p>Paketler, onları aldığın Apple Hesabına aittir. O hesapla oturum açıkken Satın Alımları Geri Yükle'yi
-kullan: yeni bir cihazda ya da yeniden yükledikten sonra Bitz'i başlattığında ilk ekranda, Dükkân'da veya
-Ayarlar › Satın alımlar içinde. Mevsimi geçmiş paketler de geri yüklenir. Geri yükleme odalarını ya da
-kıyafetlerini değiştirmez.</p>
+<p>Paketler, onları aldığın Apple Hesabına aittir. App Store onları cihazında kullanılabilir kıldığında
+Bitz açılırken ya da yeniden ekrana geldiğinde onları otomatik olarak tanır; yeni bir cihazda ya da yeniden
+yükledikten sonra da. Ayarlar › Satın alımlar, cihazında doğrulanan paket sayısını gösterir. Bir paket
+eksikse, o hesapla oturum açıkken oradaki Önceki Satın Alımları Geri Yükle'yi kullan. Mevsimi geçmiş paketler
+de geri yüklenir. Geri yükleme odalarını ya da kıyafetlerini değiştirmez.</p>
 <h3 id="tr-save">Satın alımları geri yüklemek kedimi de geri getirir mi?</h3>
 <p>Hayır. Yalnızca satın alımları geri yükler. Kedin, yıldızların ve ilerlemen cihazında saklanır. Taşımak için
 Ayarlar › Hakkında ve Destek › Verileri yönet bölümünden bir yedek dışa aktar ve yeni cihazda ilk kurulum
@@ -167,7 +182,7 @@ ekranından ya da Verileri yönet'ten geri yükle; uygulama verilerini içeren b
 <h3 id="tr-refunds">İadeler ve ödeme sorunları</h3>
 <p>Satın alımlar Apple üzerinden yapılır; ödemeleri, iadeleri ve iptalleri Apple yürütür:
 <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Tüketici mevzuatından doğan hakların
-saklıdır. Bir paket açılmazsa önce Satın Alımları Geri Yükle'yi dene, sonra bize yaz.</p>
+saklıdır. Bir paket açılmazsa önce Önceki Satın Alımları Geri Yükle'yi dene, sonra bize yaz.</p>
 
 <h2 id="tr-health">Sağlık ve adımlar</h2>
 <p>Apple Sağlık'ı bağlamak isteğe bağlıdır. Bitz yalnızca yürüyüş hedefini kutlamak için günün adım sayısını
@@ -191,16 +206,17 @@ sorabilir ya da hiç açmayabilir.</p>
 
 <h2 id="tr-nearby">Yakındaki Arkadaşlar</h2>
 <p>Ziyaretler için Bitz yüklü, birbirine yakın, ikisinde de Yakındaki Arkadaşlar açık ve uygulama açık iki
-cihaz gerekir. Bitz, özelliği ilk açtığında Yerel Ağ izni ister. Yakındaki oyuncular, sen onları davet edene ya
-da davetlerini kabul edene kadar yalnızca kedinin görünümünü görür; sonra o oyuncu kedinin adını ve görünen
-adını görür, bu yüzden bir takma ad en iyisidir. Birini durdurmak için Arkadaşlar sekmesinde onun kedisinde ya
+cihaz gerekir. Bitz, özelliği ilk açtığında Yerel Ağ izni ister. Sen birini davet edene ya da bir daveti kabul edene kadar yakındaki oyuncular yalnızca kedinin görünümünü her
+oturumda değişen bir kodla alır; sonra o oyuncu kedinin adını, görünen adını ve kedinin kalıcı kodunu da alır,
+bu yüzden bir takma ad en iyisidir. Birini durdurmak için Arkadaşlar sekmesinde onun kedisinde ya
 da davetinde <em>Engelle</em>'yi seç: engellenen kediler gizlenir ve davetleri reddedilir (engeli Arkadaşlar'da
 kaldırabilirsin). <em>Bildir</em>, adlarını içeren ve göndermeden önce düzenleyebileceğin bir e-postayı bize
 açar.</p>
 
 <h2 id="tr-data">Verilerin</h2>
-<p>Bitz'in kaydettiği her şey cihazında kalır; uygulamayı (widget'larıyla birlikte) silmek bunları kaldırır.
-Dışa aktardığın yedekler ve diğer oyuncuların kedinin herkese açık kartından sakladığı kopyalar silinmez.
+<p>Bitz'in kaydettiği her şey cihazında saklanır ve bize gönderilmez; uygulamayı (widget'larıyla birlikte)
+silmek bunları kaldırır. Dışa aktardığın yedekler, kendi cihaz yedeklerin ve diğer oyuncuların kedinin
+kartından sakladığı kopyalar silinmez.
 <a href="/Bitz/privacy/#tr">Gizlilik politikasına</a> bak.</p>
     </section>
   </article>
@@ -219,6 +235,7 @@ Dışa aktardığın yedekler ve diğer oyuncuların kedinin herkese açık kart
       <h2 class="footer-title">Bitz</h2>
       <ul class="footer-links">
         <li><a href="/Bitz/">Bitz, the pixel cat</a></li>
+        <li><a href="https://apps.apple.com/us/app/bitz-pixel-cat/id6824056606">Download on the App Store</a></li>
         <li><a href="/Bitz/support/">Support</a></li>
         <li><a href="/Bitz/privacy/">Privacy policy</a></li>
       </ul>
@@ -239,7 +256,7 @@ Dışa aktardığın yedekler ve diğer oyuncuların kedinin herkese açık kart
     </div>
   </div>
   <div class="wrap footer-legal">
-    <p>© 2026 GibPlay Studios. iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+    <p>© 2026 GibPlay Studios. Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</p>
   </div>
 </footer>
 <!--/email_off-->
