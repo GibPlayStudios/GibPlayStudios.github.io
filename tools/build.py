@@ -18,7 +18,6 @@ SITE = "https://gibplay.com"
 EMAIL = "info@gibplay.com"
 YEAR = "2026"
 RELEASE = json.loads((ROOT / "config/release.json").read_text())
-<<<<<<< HEAD
 if RELEASE["status"] != "available":
     raise SystemExit("config/release.json: the only supported status is 'available' (docs/RELEASE_BUTTON.md).")
 # Apple's badges share a height of 40; the Turkish wording is wider.
@@ -26,11 +25,6 @@ BADGE_WIDTH = {"en": 120, "tr": 151}
 ASSET_VERSION = "10"
 # The studio homepage has its own version, so homepage-only changes never touch the Bitz pages.
 STUDIO_ASSET_VERSION = "s4"
-=======
-ASSET_VERSION = "9"
-# The studio homepage has its own version, so homepage-only changes never touch the Bitz pages.
-STUDIO_ASSET_VERSION = "s3"
->>>>>>> 6ff347374cd44c20a8f3806bacb22edd7d232e91
 
 PAGES = [
     {"src": "home.en.html", "out": "index.html", "path": "/", "lang": "en", "section": "home",
@@ -338,11 +332,7 @@ STUDIO_SHAPES = """<svg class="hero-shapes" viewBox="0 0 520 440" aria-hidden="t
 
 
 def studio_art(lang):
-<<<<<<< HEAD
     first = "Our first released game" if lang == "en" else "Yayımlanan ilk oyunumuz"
-=======
-    first = "Our first game" if lang == "en" else "İlk oyunumuz"
->>>>>>> 6ff347374cd44c20a8f3806bacb22edd7d232e91
     return f"""<div class="hero-visual" aria-hidden="true">
   {STUDIO_SHAPES}
   <div class="shot shot-back"><img class="pixel" src="/assets/bitz/art/theme-lanternNight.png" width="160" height="112" alt=""></div>

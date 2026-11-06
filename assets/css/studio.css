@@ -222,16 +222,10 @@ p { margin: 0 0 1em; }
 .game-body p { color: #5f4450; }
 .game-features { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 4px 0 20px; padding: 0; }
 .game-features li { padding: 6px 12px; border-radius: 999px; background: #fff8ee; border: 1px solid rgba(61, 38, 48, 0.16); color: #3d2630; font-size: 0.86rem; font-weight: 600; }
-<<<<<<< HEAD
 /* Apple asks for clear space of a quarter of the badge height: 12px at this size. */
 .store-badge { display: inline-block; margin: 12px 0; }
 .store-badge img { display: block; width: auto; height: 48px; }
 .game-status-note { margin-top: 0; font-size: 0.9rem; color: #6b4a55; }
-=======
-.game-status { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; font-weight: 650; color: #3d2630; }
-.game-status .dot { width: 9px; height: 9px; border-radius: 50%; background: #c8612b; flex: none; }
-.game-status-note { margin-top: 6px; font-size: 0.9rem; color: #6b4a55; }
->>>>>>> 6ff347374cd44c20a8f3806bacb22edd7d232e91
 .game-body .actions { margin-top: 26px; }
 .game-body .btn { border-color: rgba(61, 38, 48, 0.22); background: #fff8ee; color: #3d2630; box-shadow: none; }
 .game-body .btn:hover { border-color: #3d2630; box-shadow: none; }
