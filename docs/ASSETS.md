@@ -7,7 +7,7 @@ Everything the site shows is first-party: no stock images, icon sets, web fonts 
 Exported from the Bitz app's own pixel renderer (`Sources/BitzShared/Render` in the Bitz repository) by
 `tools/bitz-art`, a small Swift package that depends on the Bitz package read-only. Bitz's art is original and
 drawn in code (Bitz `docs/STORE_LISTING.md`: "Does not use third-party content"); it belongs to the Bitz
-developer, Berkay Yilmaz (Gibplay Game Studio). Exported from Bitz commit `1e92ef4`, via a `git archive` copy so
+developer (GibPlay Studios). Exported from Bitz commit `1e92ef4`, via a `git archive` copy so
 the app repository's working tree was not touched.
 
 | Files | What |

@@ -9,7 +9,7 @@ From the website session, updated 2026-10-18 after the second deployment. Answer
 | --- | --- |
 | Repository | `GibPlayStudios/GibPlayStudios.github.io`, branch `main`, GitHub Pages (Jekyll build from `main` /) |
 | Live commit | `3924cb6` ("Add files via upload"; Pages build `built`, 2026-10-18 14:01 UTC). Its site files are identical to the website session's commit `2607292`. |
-| How it was deployed | The owner uploaded the files on github.com; the `berkay-yilmaz` account has read-only access, so `git push` from this Mac is refused (403). |
+| How it was deployed | The owner uploaded the files on github.com; the account on this Mac had read-only access at the time, so `git push` from this Mac is refused (403). |
 | Verified live | Every route below returns 200 over HTTPS; the live HTML matches the local build byte for byte, except the `<!--email_off-->` markers that Cloudflare consumes as intended. |
 
 ## 2. URLs, canonical and www
@@ -117,7 +117,7 @@ cache disabled, with screenshots of what is actually rendered):
    record `_github-pages-challenge-GibPlayStudios.gibplay.com`; add it in Cloudflare DNS with the value shown on
    that GitHub page, then click Verify there. Until then another GitHub account could claim gibplay.com if
    Pages were ever switched off.
-3. Push access: grant `berkay-yilmaz` Write access to the repository (or push from the GibPlayStudios account) so
+3. Push access: grant this Mac's GitHub account Write access to the repository (or push from the GibPlayStudios account) so
    future deployments are exact commits instead of web uploads.
 
 Resolved since the first handoff: `http://` now redirects to `https://` (Cloudflare "Always Use HTTPS"; GitHub
@@ -133,4 +133,4 @@ legal texts use the studio name **GibPlay Studios**; support and privacy now des
   "Gibplay Game Studio" and should be aligned by the app session.
 - **Email:** the website uses only `info@gibplay.com`.
 
-The old pages at `https://berkay-yilmaz.github.io/bitz-app/` were not touched.
+The old pages at the earlier GitHub Pages address were not touched.

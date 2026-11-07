@@ -66,7 +66,8 @@ T = {
         "footer_game": "Bitz", "footer_contact": "Contact", "footer_language": "Language",
         "footer_support_text": "Questions about Bitz? Start with", "footer_support_link": "Bitz Support",
         "legal": "Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. "
-                 "App Store is a service mark of Apple Inc., registered in the U.S. and other countries.",
+                 "App Store is a service mark of Apple Inc., registered in the U.S. and other countries. iPadOS is a trademark of Apple Inc. "
+                 "IOS is a trademark or registered trademark of Cisco in the U.S. and other countries and is used under license.",
         "footer_store": "Download on the App Store",
         "home_name": "Studio",
     },
@@ -78,7 +79,8 @@ T = {
         "footer_game": "Bitz", "footer_contact": "İletişim", "footer_language": "Dil",
         "footer_support_text": "Bitz hakkında bir sorun mu var? Önce şuraya bak:", "footer_support_link": "Bitz Destek",
         "legal": "Apple, Apple logosu, iPhone ve iPad, Apple Inc.'in ABD'de ve diğer ülkelerde tescilli ticari markalarıdır. "
-                 "App Store, Apple Inc.'in ABD'de ve diğer ülkelerde tescilli hizmet markasıdır.",
+                 "App Store, Apple Inc.'in ABD'de ve diğer ülkelerde tescilli hizmet markasıdır. iPadOS, Apple Inc.'in ticari markasıdır. "
+                 "IOS, Cisco'nun ABD'de ve diğer ülkelerde ticari markası veya tescilli ticari markasıdır ve lisansla kullanılmaktadır.",
         "footer_store": "App Store'dan indir",
         "home_name": "Stüdyo",
     },
